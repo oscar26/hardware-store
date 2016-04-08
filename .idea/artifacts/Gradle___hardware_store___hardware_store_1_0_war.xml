@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : hardware-store : hardware-store-1.0.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/hardware-store</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="hardware-store-1.0.war">
+      <element id="javaee-facet-resources" facet="hardware-store_main/web/Web Gradle : hardware-store-1.0.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="hardware-store_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/output" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/hardware-store/exploded/hardware-store-1.0.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
