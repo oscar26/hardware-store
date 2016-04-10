@@ -161,4 +161,68 @@ public class Item implements Serializable {
         this.requiredItems = requiredItems;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Item item = (Item) o;
+
+        if (itemId != item.itemId) return false;
+        if (Double.compare(item.height, height) != 0) return false;
+        if (Double.compare(item.width, width) != 0) return false;
+        if (Double.compare(item.depth, depth) != 0) return false;
+        if (Double.compare(item.weight, weight) != 0) return false;
+        if (quantity != item.quantity) return false;
+        if (Double.compare(item.price, price) != 0) return false;
+        if (name != null ? !name.equals(item.name) : item.name != null) return false;
+        if (entityName != null ? !entityName.equals(item.entityName) : item.entityName != null) return false;
+        if (colour != null ? !colour.equals(item.colour) : item.colour != null) return false;
+        if (additionalInfo != null ? !additionalInfo.equals(item.additionalInfo) : item.additionalInfo != null)
+            return false;
+        return requiredItems != null ? requiredItems.equals(item.requiredItems) : item.requiredItems == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = (int) (itemId ^ (itemId >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (entityName != null ? entityName.hashCode() : 0);
+        temp = Double.doubleToLongBits(height);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(width);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(depth);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(weight);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (colour != null ? colour.hashCode() : 0);
+        result = 31 * result + (int) (quantity ^ (quantity >>> 32));
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (additionalInfo != null ? additionalInfo.hashCode() : 0);
+        result = 31 * result + (requiredItems != null ? requiredItems.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId=" + itemId +
+                ", name='" + name + '\'' +
+                ", entityName='" + entityName + '\'' +
+                ", height=" + height +
+                ", width=" + width +
+                ", depth=" + depth +
+                ", weight=" + weight +
+                ", colour='" + colour + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", additionalInfo='" + additionalInfo + '\'' +
+                ", requiredItems=" + requiredItems +
+                '}';
+    }
 }

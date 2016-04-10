@@ -97,4 +97,50 @@ public class Order implements Serializable {
         this.bill = bill;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (orderId != order.orderId) return false;
+        if (Double.compare(order.totalValue, totalValue) != 0) return false;
+        if (Double.compare(order.shippingCost, shippingCost) != 0) return false;
+        if (shippingAddress != null ? !shippingAddress.equals(order.shippingAddress) : order.shippingAddress != null)
+            return false;
+        if (shippingDate != null ? !shippingDate.equals(order.shippingDate) : order.shippingDate != null) return false;
+        if (items != null ? !items.equals(order.items) : order.items != null) return false;
+        return bill != null ? bill.equals(order.bill) : order.bill == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = (int) (orderId ^ (orderId >>> 32));
+        temp = Double.doubleToLongBits(totalValue);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (shippingAddress != null ? shippingAddress.hashCode() : 0);
+        result = 31 * result + (shippingDate != null ? shippingDate.hashCode() : 0);
+        temp = Double.doubleToLongBits(shippingCost);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (items != null ? items.hashCode() : 0);
+        result = 31 * result + (bill != null ? bill.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", totalValue=" + totalValue +
+                ", shippingAddress='" + shippingAddress + '\'' +
+                ", shippingDate=" + shippingDate +
+                ", shippingCost=" + shippingCost +
+                ", items=" + items +
+                ", bill=" + bill +
+                '}';
+    }
 }

@@ -46,6 +46,15 @@ public class Customer extends Account implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Order> placedOrders;
 
+    public Customer(String firstName, String lastName, String username, String password, String email, long customerId, CustomerIdType customerIdType, List<String> addresses, List<String> phoneNumbers, List<Order> placedOrders) {
+        super(firstName, lastName, username, password, email);
+        this.customerId = customerId;
+        this.customerIdType = customerIdType;
+        this.addresses = addresses;
+        this.phoneNumbers = phoneNumbers;
+        this.placedOrders = placedOrders;
+    }
+
     public long getCustomerId() {
         return customerId;
     }
@@ -86,4 +95,42 @@ public class Customer extends Account implements Serializable {
         this.placedOrders = placedOrders;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Customer customer = (Customer) o;
+
+        if (customerId != customer.customerId) return false;
+        if (customerIdType != customer.customerIdType) return false;
+        if (addresses != null ? !addresses.equals(customer.addresses) : customer.addresses != null) return false;
+        if (phoneNumbers != null ? !phoneNumbers.equals(customer.phoneNumbers) : customer.phoneNumbers != null)
+            return false;
+        return placedOrders != null ? placedOrders.equals(customer.placedOrders) : customer.placedOrders == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (int) (customerId ^ (customerId >>> 32));
+        result = 31 * result + (customerIdType != null ? customerIdType.hashCode() : 0);
+        result = 31 * result + (addresses != null ? addresses.hashCode() : 0);
+        result = 31 * result + (phoneNumbers != null ? phoneNumbers.hashCode() : 0);
+        result = 31 * result + (placedOrders != null ? placedOrders.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerIdType=" + customerIdType +
+                ", addresses=" + addresses +
+                ", phoneNumbers=" + phoneNumbers +
+                ", placedOrders=" + placedOrders +
+                '}';
+    }
 }

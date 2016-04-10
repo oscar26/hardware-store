@@ -10,8 +10,8 @@
 ">
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="dataAccess.entities" />
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="dataAccess.entities"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
@@ -22,36 +22,30 @@
     </bean> 
 
     <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost/hardwareStore" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/hardwareStore"/>
         <!--<property name="url" value="jdbc:mysql://192.168.0.50:3306/medicamentos" />-->
-        <property name="username" value="root" />
-        <property name="password" value="arqsoft2015" />
+        <property name="username" value="root"/>
+        <property name="password" value="arqsoft2015"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
  
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     
     <bean id="genericDao" class="dataAccess.dao.imp.GenericDAO" autowire="byName" scope="prototype">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     
     <!-- DAO's beans-->
     <bean id="accountDAO" class="dataAccess.dao.imp.AccountDAO" autowire="byName" scope="prototype" parent="genericDao"/>
-    <!--
-    <bean id="accountDAO" class="DataAccess.DAO.Imp.AccountDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="administratorDAO" class="DataAccess.DAO.Imp.AdministratorDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="billDAO" class="DataAccess.DAO.Imp.BillDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="customerDAO" class="DataAccess.DAO.Imp.CustomerDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="drugDAO" class="DataAccess.DAO.Imp.DrugDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="inventoryItemDAO" class="DataAccess.DAO.Imp.InventoryItemDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="itemDAO" class="DataAccess.DAO.Imp.ItemDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="purchaseDAO" class="DataAccess.DAO.Imp.PurchaseDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    <bean id="purchaseItemDAO" class="DataAccess.DAO.Imp.PurchaseItemDAO" autowire="byName" scope="prototype" parent="genericDao" />
-    -->
+    <bean id="administratorDAO" class="dataAccess.dao.imp.AdministratorDAO" autowire="byName" scope="prototype" parent="genericDao"/>
+    <bean id="customerDAO" class="dataAccess.dao.imp.CustomerDAO" autowire="byName" scope="prototype" parent="genericDao"/>
+    <bean id="itemDAO" class="dataAccess.dao.imp.ItemDAO" autowire="byName" scope="prototype" parent="genericDao"/>
+    <bean id="orderBillDAO" class="dataAccess.dao.imp.OrderBillDAO" autowire="byName" scope="prototype" parent="genericDao"/>
+    <bean id="orderDAO" class="dataAccess.dao.imp.OrderDAO" autowire="byName" scope="prototype" parent="genericDao"/>
 
     <!-- Controllers -->
     <!--

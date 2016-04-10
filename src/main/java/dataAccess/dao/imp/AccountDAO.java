@@ -18,13 +18,11 @@ public class AccountDAO extends GenericDAO<Account> implements IAccountDAO {
 
     public List<Account> getAll() {
         Session session = getSession();
-        //noinspection JpaQlInspection
         return session.createQuery("FROM Account").list();
     }
 
     public Account getAccountByUsername(String username) {
         Session session = getSession();
-        //noinspection JpaQlInspection
         return (Account)session.createQuery("FROM Account WHERE username = :username")
                 .setParameter("username", username).uniqueResult();
     }

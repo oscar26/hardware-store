@@ -56,4 +56,33 @@ public class OrderBill implements Serializable {
         this.paymentDate = paymentDate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrderBill orderBill = (OrderBill) o;
+
+        if (orderBillId != orderBill.orderBillId) return false;
+        if (paymentMethod != orderBill.paymentMethod) return false;
+        return paymentDate != null ? paymentDate.equals(orderBill.paymentDate) : orderBill.paymentDate == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (orderBillId ^ (orderBillId >>> 32));
+        result = 31 * result + (paymentMethod != null ? paymentMethod.hashCode() : 0);
+        result = 31 * result + (paymentDate != null ? paymentDate.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderBill{" +
+                "orderBillId=" + orderBillId +
+                ", paymentMethod=" + paymentMethod +
+                ", paymentDate=" + paymentDate +
+                '}';
+    }
 }

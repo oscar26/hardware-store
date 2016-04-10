@@ -96,4 +96,53 @@ public class Account implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Account() { }
+
+    public Account(String firstName, String lastName, String username, String password, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Account account = (Account) o;
+
+        if (accountId != null ? !accountId.equals(account.accountId) : account.accountId != null) return false;
+        if (firstName != null ? !firstName.equals(account.firstName) : account.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(account.lastName) : account.lastName != null) return false;
+        if (username != null ? !username.equals(account.username) : account.username != null) return false;
+        if (password != null ? !password.equals(account.password) : account.password != null) return false;
+        return email != null ? email.equals(account.email) : account.email == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountId != null ? accountId.hashCode() : 0;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountId=" + accountId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
