@@ -161,6 +161,20 @@ public class Item implements Serializable {
         this.requiredItems = requiredItems;
     }
 
+    public Item(String name, String entityName, double height, double width, double depth, double weight, String colour, long quantity, double price, String additionalInfo, List<Item> requiredItems) {
+        this.name = name;
+        this.entityName = entityName;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+        this.weight = weight;
+        this.colour = colour;
+        this.quantity = quantity;
+        this.price = price;
+        this.additionalInfo = additionalInfo;
+        this.requiredItems = requiredItems;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -2,13 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/tx"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 ">
 
+    <!-- Hibernate configuration -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="dataAccess.entities"/>
@@ -48,6 +49,7 @@
     <bean id="orderDAO" class="dataAccess.dao.imp.OrderDAO" autowire="byName" scope="prototype" parent="genericDao"/>
 
     <!-- Controllers -->
+    <bean id="testRestController" class="businessLogic.controllers.TestRestController" autowire="byName" scope="singleton"/>
     <!--
     <bean id="authController" class="BusinessLogic.Controllers.AuthController" autowire="byName" scope="singleton" />
     <bean id="customerController" class="BusinessLogic.Controllers.CustomerController" autowire="byName" scope="singleton" />
@@ -58,6 +60,7 @@
     -->
 
     <!-- Services -->
+    <bean id="orderBillService" class="businessLogic.services.OrderBillService" autowire="byName" scope="singleton"/>
     <!--
     <bean id="administratorService" class="BusinessLogic.Services.AdministratorService" autowire="byName" scope="singleton" />
     <bean id="customerService" class="BusinessLogic.Services.CustomerService" autowire="byName" scope="singleton" />

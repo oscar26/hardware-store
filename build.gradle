@@ -5,6 +5,9 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'war'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
     mavenCentral()
     maven {
@@ -14,10 +17,13 @@ repositories {
 
 dependencies {
     providedCompile 'javax:javaee-api:7.0'
+    compile 'org.springframework:spring-core:4.2.5.RELEASE'
     compile 'org.springframework:spring-context:4.3.0.RC1'
     compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
     compile 'org.springframework:spring-orm:4.2.5.RELEASE'
     compile 'org.springframework:spring-web:4.2.5.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
+    //compile 'com.fasterxml.jackson.core:jackson-core:2.7.3' // Fix collision with Glassfish provided Jackson JAR
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
     compile 'org.apache.tomcat:tomcat-dbcp:8.5.0'

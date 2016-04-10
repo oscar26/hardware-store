@@ -97,6 +97,15 @@ public class Order implements Serializable {
         this.bill = bill;
     }
 
+    public Order(double totalValue, String shippingAddress, Date shippingDate, double shippingCost, List<Item> items, OrderBill bill) {
+        this.totalValue = totalValue;
+        this.shippingAddress = shippingAddress;
+        this.shippingDate = shippingDate;
+        this.shippingCost = shippingCost;
+        this.items = items;
+        this.bill = bill;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
