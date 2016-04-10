@@ -60,14 +60,9 @@
     -->
 
     <!-- Services -->
+    <bean id="customerService" class="businessLogic.services.CustomerService" autowire="byName" scope="singleton"/>
+    <bean id="itemService" class="businessLogic.services.ItemService" autowire="byName" scope="singleton"/>
     <bean id="orderBillService" class="businessLogic.services.OrderBillService" autowire="byName" scope="singleton"/>
-    <!--
-    <bean id="administratorService" class="BusinessLogic.Services.AdministratorService" autowire="byName" scope="singleton" />
-    <bean id="customerService" class="BusinessLogic.Services.CustomerService" autowire="byName" scope="singleton" />
-    <bean id="drugService" class="BusinessLogic.Services.DrugService" autowire="byName" scope="singleton" />
-    <bean id="billService" class="BusinessLogic.Services.BillService" autowire="byName" scope="singleton" />
-    <bean id="purchaseService" class="BusinessLogic.Services.PurchaseService" autowire="byName" scope="singleton" />
-    <bean id="ldapOperationsService" class="BusinessLogic.Services.LDAPOperationsService" autowire="byName" scope="singleton" />
-    -->
+    <bean id="orderService" class="businessLogic.services.OrderService" autowire="byName" scope="singleton"/>
 
 </beans>

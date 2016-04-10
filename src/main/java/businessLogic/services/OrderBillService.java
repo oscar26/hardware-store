@@ -14,7 +14,7 @@ public class OrderBillService {
     private IOrderBillDAO orderBillDAO;
 
     @Transactional
-    public boolean save(OrderBill orderBill) {
+    public boolean saveOrderBill(OrderBill orderBill) {
         return getOrderBillDAO().save(orderBill);
     }
 

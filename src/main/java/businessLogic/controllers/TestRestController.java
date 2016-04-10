@@ -28,7 +28,7 @@ public class TestRestController {
         orderBills.add(new OrderBill(PaymentMethod.CASH, new Date()));
         orderBills.add(new OrderBill(PaymentMethod.CHEQUE, new Date()));
         orderBills.add(new OrderBill(PaymentMethod.CREDIT_CARD, new Date()));
-        orderBillService.save(orderBills.get(0));
+        orderBillService.saveOrderBill(orderBills.get(0));
         return orderBills;
     }
 
