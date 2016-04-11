@@ -97,6 +97,8 @@ public class Order implements Serializable {
         this.bill = bill;
     }
 
+    public Order() { }
+
     public Order(double totalValue, String shippingAddress, Date shippingDate, double shippingCost, List<Item> items, OrderBill bill) {
         this.totalValue = totalValue;
         this.shippingAddress = shippingAddress;

@@ -56,6 +56,8 @@ public class OrderBill implements Serializable {
         this.paymentDate = paymentDate;
     }
 
+    public OrderBill() { }
+
     public OrderBill(PaymentMethod paymentMethod, Date paymentDate) {
         this.paymentMethod = paymentMethod;
         this.paymentDate = paymentDate;

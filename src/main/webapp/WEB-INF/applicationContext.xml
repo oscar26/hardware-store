@@ -49,7 +49,7 @@
     <bean id="orderDAO" class="dataAccess.dao.imp.OrderDAO" autowire="byName" scope="prototype" parent="genericDao"/>
 
     <!-- Controllers -->
-    <bean id="testRestController" class="businessLogic.controllers.TestRestController" autowire="byName" scope="singleton"/>
+    <bean id="customerController" class="businessLogic.controllers.CustomerController" autowire="byName" scope="singleton"/>
     <!--
     <bean id="authController" class="BusinessLogic.Controllers.AuthController" autowire="byName" scope="singleton" />
     <bean id="customerController" class="BusinessLogic.Controllers.CustomerController" autowire="byName" scope="singleton" />

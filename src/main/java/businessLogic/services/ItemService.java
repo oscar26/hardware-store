@@ -10,6 +10,7 @@ import java.util.List;
  * Created by oscar on 10/04/16.
  */
 
+@Transactional
 public class ItemService {
 
     private IItemDAO itemDAO;
@@ -22,17 +23,14 @@ public class ItemService {
         return itemDAO.getAll();
     }
 
-    @Transactional
     public boolean saveItem(Item item) {
         return itemDAO.save(item);
     }
 
-    @Transactional
     public boolean updateItem(Item item) {
         return itemDAO.update(item);
     }
 
-    @Transactional
     public boolean deleteItem(Item item) {
         return itemDAO.delete(item);
     }

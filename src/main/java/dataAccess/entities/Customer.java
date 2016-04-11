@@ -33,18 +33,20 @@ public class Customer extends Account implements Serializable {
     @Column(name = "customer_id_type")
     private CustomerIdType customerIdType;
 
-    @ElementCollection
+    @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name = "addresses", joinColumns = @JoinColumn(name = "account_id"))
     @Column(name = "customer_addresses")
     private List<String> addresses;
 
-    @ElementCollection
+    @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name = "phone_numbers", joinColumns = @JoinColumn(name = "account_id"))
     @Column(name = "customer_phone_numbers")
     private List<String> phoneNumbers;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Order> placedOrders;
+
+    public Customer() { }
 
     public Customer(String firstName, String lastName, String username, String password, String email, long customerId, CustomerIdType customerIdType, List<String> addresses, List<String> phoneNumbers, List<Order> placedOrders) {
         super(firstName, lastName, username, password, email);

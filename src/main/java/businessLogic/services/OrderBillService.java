@@ -9,11 +9,11 @@ import javax.transaction.Transactional;
  * Created by oscar on 10/04/16.
  */
 
+@Transactional
 public class OrderBillService {
 
     private IOrderBillDAO orderBillDAO;
 
-    @Transactional
     public boolean saveOrderBill(OrderBill orderBill) {
         return getOrderBillDAO().save(orderBill);
     }

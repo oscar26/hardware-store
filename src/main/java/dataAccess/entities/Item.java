@@ -161,6 +161,8 @@ public class Item implements Serializable {
         this.requiredItems = requiredItems;
     }
 
+    public Item() { }
+
     public Item(String name, String entityName, double height, double width, double depth, double weight, String colour, long quantity, double price, String additionalInfo, List<Item> requiredItems) {
         this.name = name;
         this.entityName = entityName;

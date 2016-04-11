@@ -10,9 +10,22 @@ import java.util.List;
  * Created by oscar on 10/04/16.
  */
 
+@Transactional
 public class CustomerService {
 
     private ICustomerDAO customerDAO;
+
+    public boolean isUsernameInUse(String username) {
+        return customerDAO.getByUsername(username) != null;
+    }
+
+    public boolean isEmailInUse(String email) {
+        return customerDAO.getByEmail(email) != null;
+    }
+
+    public boolean isCustomerIdInUse(long customerId) {
+        return customerDAO.getByCustomerId(customerId) != null;
+    }
 
     public Customer getById(long id) {
         return customerDAO.get(id);
@@ -34,17 +47,14 @@ public class CustomerService {
         return customerDAO.getAll();
     }
 
-    @Transactional
     public boolean saveCustomer(Customer customer) {
         return customerDAO.save(customer);
     }
 
-    @Transactional
     public boolean updateCustomer(Customer customer) {
         return customerDAO.update(customer);
     }
 
-    @Transactional
     public boolean deleteCustomer(Customer customer) {
         return customerDAO.delete(customer);
     }

@@ -10,6 +10,7 @@ import java.util.List;
  * Created by oscar on 10/04/16.
  */
 
+@Transactional
 public class OrderService {
 
     private IOrderDAO orderDAO;
@@ -22,17 +23,14 @@ public class OrderService {
         return orderDAO.getAll();
     }
 
-    @Transactional
     public boolean saveOrder(Order order) {
         return orderDAO.save(order);
     }
 
-    @Transactional
     public boolean updateOrder(Order order) {
         return orderDAO.update(order);
     }
 
-    @Transactional
     public boolean deleteOrder(Order order) {
         return orderDAO.delete(order);
     }
