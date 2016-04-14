@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--suppress ALL -->
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <title>HTML</title>
+
+    <!-- Lumx -->
+    <link rel="stylesheet" href="assets/libs/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+
+    <!-- Libs -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/velocity/velocity.min.js"></script>
+    <script src="assets/libs/moment/min/moment-with-locales.min.js"></script>
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="assets/libs/lumx/dist/lumx.js"></script>
+
+    <!-- AngularJS app  -->
+    <script src="app/app.js"></script>
+
+    <title>Hardware Store</title>
 </head>
 <body>
-    This is a HTML page.
+    <div ui-view>
+        <!-- Header (ruled by UI-Router) -->
+        <div class="tc-white-1 bgc-deep-orange-800 p+" flex-container="row" flex-column="12" flex-align="center">
+            <div flex-item="3">Hardware Store</div>
+            <div flex-item="6" style="text-align: center">Logo</div>
+            <div flex-item="3">
+                <div flex-container="row" style="justify-content: flex-end">
+                    <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Registrarse</button>
+                    <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Ingresar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content (ruled by UI-Router) -->
+    </div>
+
+    <!-- Footer (fixed) -->
+    <div class="tc-white-1 bgc-grey-200 p+" flex-container="row" flex-column="12">
+    </div>
 </body>
 </html>
