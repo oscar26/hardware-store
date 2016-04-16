@@ -50,6 +50,7 @@
 
     <!-- Controllers -->
     <bean id="customerController" class="businessLogic.controllers.CustomerController" autowire="byName" scope="singleton"/>
+    <bean id="loginController" class="businessLogic.controllers.LoginController" autowire="byName" scope="singleton"/>
     <!--
     <bean id="authController" class="BusinessLogic.Controllers.AuthController" autowire="byName" scope="singleton" />
     <bean id="customerController" class="BusinessLogic.Controllers.CustomerController" autowire="byName" scope="singleton" />

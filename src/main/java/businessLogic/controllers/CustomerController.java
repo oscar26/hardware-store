@@ -1,7 +1,7 @@
 package businessLogic.controllers;
 
 import businessLogic.services.CustomerService;
-import businessLogic.services.statuses.GenericResponseStatus;
+import businessLogic.controllers.statuses.GenericResponseStatus;
 import dataAccess.entities.Customer;
 import dataAccess.entities.enumerations.CustomerIdType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,17 +63,17 @@ public class CustomerController {
 
         if (customerService.isUsernameInUse(customer.getUsername())) {
             System.out.println(customer.getUsername() + " username already in use.");
-            return new ResponseEntity<>(new GenericResponseStatus(1, "ERROR: username already in use"), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(new GenericResponseStatus(1, "ERROR: username already in use"), HttpStatus.OK);
         } else if (customerService.isEmailInUse(customer.getEmail())) {
             System.out.println(customer.getEmail() + " email already in use.");
-            return new ResponseEntity<>(new GenericResponseStatus(2, "ERROR: email already in use"), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(new GenericResponseStatus(2, "ERROR: email already in use"), HttpStatus.OK);
         } else if (customerService.isCustomerIdInUse(customer.getCustomerId())) {
             System.out.println(customer.getCustomerId() + " customerId already in use");
-            return new ResponseEntity<>(new GenericResponseStatus(3, "ERROR: customerId already in use"), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(new GenericResponseStatus(3, "ERROR: customerId already in use"), HttpStatus.OK);
         }
 
         customerService.saveCustomer(customer);
-        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user created"), HttpStatus.CREATED);
+        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user created"), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")

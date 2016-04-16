@@ -8,6 +8,10 @@ apply plugin: 'war'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+war {
+    archiveName 'hardwareStore.war'
+}
+
 repositories {
     mavenCentral()
     maven {

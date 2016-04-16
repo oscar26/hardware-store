@@ -1,4 +1,4 @@
-package businessLogic.services.statuses;
+package businessLogic.controllers.statuses;
 
 import java.io.Serializable;
 

@@ -1,0 +1,20 @@
+<div flex-container="row" flex-column="16" flex-align="center" style="padding-top: 20em" ng-style="bgImage">
+    <div flex-item="5">
+        <div class="bgc-grey-800 p+ pt0" style="opacity: 0.75">
+            <lx-text-field lx-label="Usuario o correo electrónico" lx-error="user.username.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.username">
+            </lx-text-field>
+            <lx-text-field lx-label="Constraseña" lx-error="user.password.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="password" ng-model="user.password">
+            </lx-text-field>
+            <div flex-container="row" flex-column="12" flex-align="space-between center" style="margin-top: 2.5em">
+                <div flex-item="2"></div>
+                <a ui-sref="signup">
+                    <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Registrarse</button>
+                </a>
+                <button class="btn btn--m btn--primary btn--flat tc-white-1 signinButton" lx-ripple="indigo-500">Ingresar</button>
+                <div flex-item="2"></div>
+            </div>
+        </div>
+    </div>
+</div>
