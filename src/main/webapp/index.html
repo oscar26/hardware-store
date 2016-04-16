@@ -56,7 +56,7 @@
                 <lx-dropdown lx-escape-close="true">
                     <lx-dropdown-toggle>
                         <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">
-                            <span class="fs-title">{{$storage.username}}</span>
+                            <span class="fs-title" style="text-transform: lowercase">{{$storage.username}}</span>
                             <i class="mdi mdi-menu-down mdi-18px"></i>
                         </button>
                     </lx-dropdown-toggle>
@@ -64,7 +64,7 @@
                     <lx-dropdown-menu>
                         <ul>
                             <li>
-                                <a class="dropdown-link">
+                                <a ui-sref="signout" class="dropdown-link">
                                     <i class="mdi mdi-exit-to-app"></i>
                                     <span>Salir</span>
                                 </a>

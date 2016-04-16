@@ -28,6 +28,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: "app/components/signup/signupView.html"
             })
 
+            .state('signout', {
+                url: "/signout",
+                redirectTo: "main"
+            })
+
             .state('productList', {
                 url: "/productList",
                 templateUrl: "app/components/productList/productListView.html"
@@ -36,7 +41,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
     }
 ]);
 
-app.run(function ($rootScope, $localStorage) {
+app.run(function ($rootScope, $localStorage, $state) {
 
     $rootScope.$storage = $localStorage.$default({
         loggedUser: false,
@@ -47,6 +52,14 @@ app.run(function ($rootScope, $localStorage) {
     $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromState, fromParams, options) {
             $rootScope.stateIsLoading = true;
+            // Logout functionality
+            if (toState.name === "signout") {
+                event.preventDefault();
+                $state.go("main");
+                $rootScope.$storage.loggedUser = false;
+                $rootScope.$storage.username = '';
+                $rootScope.$storage.shoppingCart = null;
+            }
         }
     );
 
