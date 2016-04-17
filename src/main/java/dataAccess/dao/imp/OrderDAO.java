@@ -3,6 +3,7 @@ package dataAccess.dao.imp;
 import dataAccess.dao.IOrderDAO;
 import dataAccess.entities.Order;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -14,12 +15,18 @@ public class OrderDAO extends GenericDAO<Order> implements IOrderDAO {
 
     public Order get(long id) {
         Session session = getSession();
-        return session.get(Order.class, id);
+        Transaction transaction = session.beginTransaction();
+        Order order = session.get(Order.class, id);
+        transaction.commit();
+        return order;
     }
 
     public List<Order> getAll() {
         Session session = getSession();
-        return session.createQuery("FROM Order").list();
+        Transaction transaction = session.beginTransaction();
+        List<Order> orders = session.createQuery("FROM Order").list();
+        transaction.commit();
+        return orders;
     }
 
 }

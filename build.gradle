@@ -27,7 +27,8 @@ dependencies {
     compile 'org.springframework:spring-orm:4.2.5.RELEASE'
     compile 'org.springframework:spring-web:4.2.5.RELEASE'
     compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
-    //compile 'com.fasterxml.jackson.core:jackson-core:2.7.3' // Fix collision with Glassfish provided Jackson JAR
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.3' // Fix conflict with Glassfish provided Jackson JAR
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
     compile 'org.apache.tomcat:tomcat-dbcp:8.5.0'

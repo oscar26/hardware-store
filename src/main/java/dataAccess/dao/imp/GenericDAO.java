@@ -3,6 +3,7 @@ package dataAccess.dao.imp;
 import dataAccess.dao.IGenericDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 public class GenericDAO<T> implements IGenericDAO<T> {
     
@@ -13,7 +14,9 @@ public class GenericDAO<T> implements IGenericDAO<T> {
         Session session = getSession();
         boolean success = false;
         try {
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(object);
+            transaction.commit();
             success = true;
         }
         catch (Exception e) {
@@ -25,6 +28,7 @@ public class GenericDAO<T> implements IGenericDAO<T> {
     @Override
     public boolean delete(T object) {
         Session session = getSession();
+        Transaction transaction = session.beginTransaction();
         boolean success = false;
         try {
             session.delete(object);
@@ -33,6 +37,7 @@ public class GenericDAO<T> implements IGenericDAO<T> {
         catch (Exception e) {
             e.printStackTrace();
         }
+        transaction.commit();
         return success;
     }
 
@@ -42,7 +47,9 @@ public class GenericDAO<T> implements IGenericDAO<T> {
         Session session = getSession();
         boolean success = false;
         try {
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(object);
+            transaction.commit();
             success = true;
         }
         catch (Exception e) {

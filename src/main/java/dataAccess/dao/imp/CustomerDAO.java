@@ -3,6 +3,7 @@ package dataAccess.dao.imp;
 import dataAccess.dao.ICustomerDAO;
 import dataAccess.entities.Customer;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -14,30 +15,45 @@ public class CustomerDAO extends GenericDAO<Customer> implements ICustomerDAO {
 
     public Customer get(long id) {
         Session session = getSession();
-        return session.get(Customer.class, id);
+        Transaction transaction = session.beginTransaction();
+        Customer customer = session.get(Customer.class, id);
+        transaction.commit();
+        return customer;
     }
 
     public Customer getByUsername(String username) {
         Session session = getSession();
-        return (Customer)session.createQuery("FROM Customer WHERE username = :username")
+        Transaction transaction = session.beginTransaction();
+        Customer customer = (Customer)session.createQuery("FROM Customer WHERE username = :username")
                 .setParameter("username", username).uniqueResult();
+        transaction.commit();
+        return customer;
     }
 
     public Customer getByEmail(String email) {
         Session session = getSession();
-        return (Customer)session.createQuery("FROM Customer WHERE email = :email")
+        Transaction transaction = session.beginTransaction();
+        Customer customer = (Customer)session.createQuery("FROM Customer WHERE email = :email")
                 .setParameter("email", email).uniqueResult();
+        transaction.commit();
+        return customer;
     }
 
     public Customer getByCustomerId(Long customerId) {
         Session session = getSession();
-        return (Customer)session.createQuery("FROM Customer WHERE customerId = :customerId")
+        Transaction transaction = session.beginTransaction();
+        Customer customer = (Customer)session.createQuery("FROM Customer WHERE customerId = :customerId")
                 .setParameter("customerId", customerId).uniqueResult();
+        transaction.commit();
+        return customer;
     }
 
     public List<Customer> getAll() {
         Session session = getSession();
-        return session.createQuery("FROM Customer").list();
+        Transaction transaction = session.beginTransaction();
+        List<Customer> customers = session.createQuery("FROM Customer").list();
+        transaction.commit();
+        return customers;
     }
 
 }

@@ -23,7 +23,7 @@ public class LoginController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> doLogin(@RequestBody LoginRequest loginInfo) {
         System.out.println("Receiving login request with info: " + loginInfo);
 

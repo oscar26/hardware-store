@@ -26,38 +26,38 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping(value = "/dummy", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/dummy", method = RequestMethod.GET)
     public Customer dummy() {
         Customer customer = new Customer("first name2", "last name2", "username2", "pass2", "email2", 22222, CustomerIdType.CC, null, null, null);
         customerService.saveCustomer(customer);
         return customer;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Customer> retrieveAllCustomers() {
         System.out.println("Retrieving ALL customers");
         return customerService.getAllCustomers();
     }
 
-    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
     public Customer retrieveByUsername(@PathVariable String username) {
         System.out.println("Retrieving customer with username {" + username + "}");
         return customerService.getByUsername(username);
     }
 
-    @RequestMapping(value = "/email/{email}", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
     public Customer retrieveByEmail(@PathVariable String email) {
         System.out.println("Retrieving customer with email {" + email + "}");
         return customerService.getByEmail(email);
     }
 
-    @RequestMapping(value = "/customerId/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/customerId/{id}", method = RequestMethod.GET)
     public Customer retrieveByCustomerId(@PathVariable long id) {
         System.out.println("Retrieving customer with customerId {" + id + "}");
         return customerService.getByCustomerId(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> createCustomer(@RequestBody Customer customer) {
         System.out.println("Creating customer {" + customer.getUsername() + "}");
 
@@ -76,7 +76,7 @@ public class CustomerController {
         return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user created"), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Customer> updateCustomer(@PathVariable long id, @RequestBody Customer customer) {
         System.out.println("Updating customer with id " + id);
 
@@ -89,7 +89,7 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Customer> deleteCustomer(@PathVariable long id) {
         System.out.println("Deleting customer with id " + id);
 
