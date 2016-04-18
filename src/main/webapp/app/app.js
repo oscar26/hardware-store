@@ -29,8 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
 
             .state('signout', {
-                url: "/signout",
-                redirectTo: "main"
+                url: "/signout"
             })
 
             .state('productList', {
@@ -55,10 +54,8 @@ app.run(function ($rootScope, $localStorage, $state) {
             // Logout functionality
             if (toState.name === "signout") {
                 event.preventDefault();
+                $localStorage.$reset();
                 $state.go("main");
-                $rootScope.$storage.loggedUser = false;
-                $rootScope.$storage.username = '';
-                $rootScope.$storage.shoppingCart = null;
             }
         }
     );
