@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway'>
     <link rel="stylesheet" href="assets/libs/lumx/dist/lumx.css">
     <link rel="stylesheet" href="assets/libs/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/css/stateChangeAnimation.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="assets/css/fixedElements.css">
+    <link rel="stylesheet" href="app/components/main/mainViewStyle.css">
 
     <!-- Libs -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
@@ -30,32 +33,35 @@
     <title>Hardware Store</title>
 </head>
 <body>
-
     <!-- Header (not logged) -->
-    <div class="tc-white-1 bgc-blue-grey-500 p+" flex-container="row" flex-column="16" flex-align="center" ng-if="!$storage.loggedUser" style="z-index: 10; position: fixed; width: 100%">
-        <div flex-item="2" style="text-align: center">Hardware Store</div>
-        <div flex-item="12" style="text-align: center">Logo</div>
-        <div flex-item="2">
-            <div flex-container="row" flex-align="space-between center">
+    <div class="header tc-white-1 bgc-blue-grey-900 p+" flex-container="row" flex-column="16" flex-align="center" ng-if="!$storage.loggedUser">
+        <div flex-item="3" style="text-align: center">
+            <a ui-sref="main">Hardware Store</a>
+        </div>
+        <div flex-item="10">Logo</div>
+        <div flex-item="3">
+            <div flex-container="row" flex-align="end">
                 <a ui-sref="signup">
-                    <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Registrarse</button>
+                    <button class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2">Registrarse</button>
                 </a>
                 <a ui-sref="signin">
-                    <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Ingresar</button>
+                    <button class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2">Ingresar</button>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Header (logged) -->
-    <div class="tc-white-1 bgc-blue-grey-500 p+" flex-container="row" flex-column="16" flex-align="center" ng-if="$storage.loggedUser" style="z-index: 10; position: fixed; width: 100%">
-        <div flex-item="2" style="text-align: center">Hardware Store</div>
-        <div flex-item="12" style="text-align: center">Logo</div>
-        <div flex-item="2">
+    <div class="header tc-white-1 bgc-blue-grey-900 p+" flex-container="row" flex-column="16" flex-align="center" ng-if="$storage.loggedUser">
+        <div flex-item="3" style="text-align: center">
+            <a ui-sref="main">Hardware Store</a>
+        </div>
+        <div flex-item="10">Logo</div>
+        <div flex-item="3">
             <div flex-container="row" flex-align="center">
                 <lx-dropdown lx-escape-close="true">
                     <lx-dropdown-toggle>
-                        <button class="btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">
+                        <button class="btn btn--m btn--while btn--flat tc-white-1" lx-ripple="white-2">
                             <span class="fs-title" style="text-transform: lowercase">{{$storage.username}}</span>
                             <i class="mdi mdi-menu-down mdi-18px"></i>
                         </button>
@@ -76,17 +82,18 @@
         </div>
     </div>
 
+    <!-- Main content (ruled by UI-Router) -->
+    <div class="ui-view-container">
+        <div class="loading-dim bgc-white-2" ng-if="stateIsLoading"></div>
+        <section class="ui-view-element" ui-view ng-hide="stateIsLoading"></section>
+    </div>
+
     <!-- Loading bar -->
     <lx-progress lx-type="linear" lx-color="teal" ng-if="stateIsLoading"></lx-progress>
 
-    <!-- Main content (ruled by UI-Router) -->
-    <div class="ui-view-container" style="height: 100vh">
-        <section class="ui-view-element" ui-view ng-hide="stateIsLoading" style="height: 100vh"></section>
-    </div>
-
     <!-- Footer (fixed) -->
-    <div class="tc-white-1 bgc-blue-grey-500 p+" flex-container="row" flex-column="12" flex-gutter="24" flex-align="center">
-        <div flex-item="6" style="text-align: center">
+    <div class="footer tc-white-1 bgc-blue-grey-900 p+" flex-container="row" flex-column="12" flex-gutter="24" flex-align="center">
+        <div flex-item="6">
             <div class="p+">
                 <a href="#"><lx-icon lx-id="facebook-box" lx-size="m" lx-color="black" lx-type="circled"></lx-icon></a>
                 <a href="#"><lx-icon lx-id="twitter" lx-size="m" lx-color="black" lx-type="circled"></lx-icon></a>
@@ -94,12 +101,12 @@
                 <a href="#"><lx-icon lx-id="linkedin" lx-size="m" lx-color="black" lx-type="circled"></lx-icon></a>
                 <a href="https://github.com/oscar26/hardware-store"><lx-icon lx-id="github-circle" lx-size="m" lx-color="black" lx-type="circled"></lx-icon></a>
             </div>
-            <span class="fs-caption display-block">
+            <span class="rights-info fs-caption display-block">
                 © Copyright 2016. Universidad Nacional de Colombia. All rights reserved.
                 <br>
-                <a href="#" style="color: inherit; text-decoration: none;">Sitemap</a> -
-                <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a> -
-                <a href="#" style="color: inherit; text-decoration: none;">About</a>
+                <a href="#">Sitemap</a> -
+                <a href="#">Privacy Policy</a> -
+                <a href="#">About</a>
             </span>
         </div>
     </div>

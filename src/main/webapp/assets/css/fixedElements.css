@@ -1,0 +1,30 @@
+.header {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.ui-view-container {
+    min-height: 100vh;
+}
+
+.loading-dim {
+    height: 100vh
+}
+
+.header > div, .footer > div {
+    text-align: center
+}
+
+.footer .rights-info a, .header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.progress-container {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

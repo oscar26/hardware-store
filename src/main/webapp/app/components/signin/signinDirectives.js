@@ -10,7 +10,7 @@ signinDirectives
                 restrict: 'C',
                 link: function (scope, element) {
                     element.bind('click', function (event) {
-                        loginAction.doLogin(scope.user.username, scope.user.password);
+                        loginAction.doLogin(scope);
                     });
                 }
             }
@@ -24,7 +24,7 @@ signinDirectives
                 link: function (scope, element) {
                     element.bind('keypress', function (event) {
                         if (event.which === 13) {
-                            loginAction.doLogin(scope.user.username, scope.user.password);
+                            loginAction.doLogin(scope);
                         }
                     });
                 }

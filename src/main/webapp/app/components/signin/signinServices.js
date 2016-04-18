@@ -12,27 +12,29 @@ signinServices
         }
     ])
     
-    .factory('loginAction', ['$rootScope', '$state', 'loginRequest',
-        function ($rootScope, $state, loginRequest) {
+    .factory('loginAction', ['$rootScope', '$state', 'loginRequest', 'LxNotificationService',
+        function ($rootScope, $state, loginRequest, LxNotificationService) {
             return {
-                doLogin: function (usr, pwd) {
-                    var info = {username: usr, password: pwd};
+                doLogin: function (scope) {
+                    var info = {username: scope.user.username, password: scope.user.password};
                     loginRequest.login({}, info,
                         function success(response) {
                             console.log("Doing login"); // Delete line
                             console.log(response); // Delete line
                             if (response.statusCode === 0) {
                                 $rootScope.$storage.loggedUser = true;
-                                $rootScope.$storage.username = usr;
+                                $rootScope.$storage.username = scope.user.username;
                                 // Go to product list
                                 $state.go("productList");
                             } else {
                                 // Show feedback to user
+                                LxNotificationService.error("Usuario o contraseña incorrecta.");
                                 console.log("Access not granted.");
                             }
                         },
                         function error(error) {
                             // Show feedback to user
+                            LxNotificationService.error("Hubo un problema de comunicación con el servidor. Prueba más tarde.");
                             console.log("There was an error when communicating with the server.")
                         }
                     );

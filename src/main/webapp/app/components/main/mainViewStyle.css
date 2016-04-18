@@ -1,0 +1,63 @@
+.main-view-container {
+    margin-top: 4em;
+    padding: 0 !important;
+}
+
+.info-section, #intro-section {
+    text-align: center;
+}
+
+#logo-container {
+    padding-top: 5rem;
+}
+
+#logo-container img {
+    margin: auto;
+}
+
+#intro-section > div {
+    padding-top: 3em !important;
+}
+
+#app-name {
+    padding: 6rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 6em;
+}
+
+.info-section > div {
+    padding: 0 !important;
+    height: 100%;
+}
+
+.info-section .info-header {
+    padding-top: 15rem;
+    padding-bottom: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5em;
+}
+
+.info-section .info-description {
+    padding: 1rem 10rem 16rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    text-justify: auto;
+}
+
+/* Backgrounds */
+
+#intro-section > div {
+    background: url('https://www.dropbox.com/s/n0qa4pxtzl0nwmt/table1.jpg?dl=1') no-repeat center fixed;
+}
+
+#section-1 .info-image {
+    background: url('https://www.dropbox.com/s/b4hhpaz3pw9ummk/bike1.jpg?dl=1') no-repeat left fixed;
+}
+
+#section-2 .info-image {
+    background: url('https://www.dropbox.com/s/9jrnd55eyqboy3p/shelf1.jpg?dl=1') no-repeat right fixed;
+}
+
+#section-3 .info-image {
+    background: url('https://www.dropbox.com/s/yoaoehpp85imz7w/shoes1.jpeg?dl=1') no-repeat left fixed;
+}
