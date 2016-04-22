@@ -1,8 +1,30 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .header {
     z-index: 10;
     position: fixed;
     width: 100%;
     top: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.header .btn {
+    font-size: 1.15rem;
+}
+
+@media (max-width: 1023px) {
+    #app-name-header {
+        display: none;
+    }
+}
+
+#app-name-header {
+    font-size: 1.25rem;
 }
 
 .ui-view-container {

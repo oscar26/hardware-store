@@ -1,19 +1,21 @@
 <div class="signin-view-container" flex-container="row" flex-column="16" flex-align="center">
     <div flex-item="5">
         <div id="signin-dialog" class="bgc-grey-800 p+ pt0">
-            <lx-text-field lx-label="Usuario o correo electrónico" lx-error="user.username.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.username">
-            </lx-text-field>
-            <lx-text-field lx-label="Constraseña" lx-error="user.password.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="password" ng-model="user.password">
-            </lx-text-field>
-            <div id="signin-buttons-container" flex-container="row" flex-column="12" flex-align="space-between center">
-                <div flex-item="2"></div>
+            <form name="loginForm">
+                <lx-text-field lx-label="Usuario o correo electrónico" lx-error="user.username.length === 0 && !loginForm.username.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputLoginInfo" type="text" name="username" ng-model="user.username">
+                </lx-text-field>
+                <lx-text-field lx-label="Constraseña" lx-error="user.password.length === 0 && !loginForm.password.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputLoginInfo" type="password" name="password" ng-model="user.password">
+                </lx-text-field>
+            </form>
+            <div id="signin-buttons-container" flex-container="row" flex-align="center">
                 <a ui-sref="signup">
                     <button class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2">Registrarse</button>
                 </a>
-                <button class="btn btn--m btn--white btn--flat tc-white-1 signinButton" lx-ripple="white-2">Ingresar</button>
-                <div flex-item="2"></div>
+                <a>
+                    <button class="btn btn--m btn--white btn--flat tc-white-1 signinButton" lx-ripple="white-2" ng-disabled="user.username.length === 0 || user.password.length === 0">Ingresar</button>
+                </a>
             </div>
         </div>
     </div>
