@@ -16,6 +16,7 @@ signinServices
         function ($rootScope, $state, loginRequest, LxNotificationService) {
             return {
                 doLogin: function (scope) {
+                    $rootScope.stateIsLoading = true; // Shows loading splash
                     var info = {username: scope.user.username, password: scope.user.password};
                     loginRequest.login({}, info,
                         function success(response) {
@@ -31,11 +32,13 @@ signinServices
                                 LxNotificationService.error("Usuario o contraseña incorrecta.");
                                 console.log("Access not granted.");
                             }
+                            $rootScope.stateIsLoading = false; // Hides loading splash
                         },
                         function error(error) {
                             // Show feedback to user
                             LxNotificationService.error("Hubo un problema de comunicación con el servidor. Prueba más tarde.");
-                            console.log("There was an error when communicating with the server.")
+                            console.log("There was an error when communicating with the server.");
+                            $rootScope.stateIsLoading = false; // Hides loading splash
                         }
                     );
                 }

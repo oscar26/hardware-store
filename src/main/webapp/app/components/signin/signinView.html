@@ -1,13 +1,13 @@
-<div flex-container="row" flex-column="16" flex-align="center" style="padding-top: 20em" ng-style="bgImage">
+<div class="signin-view-container" flex-container="row" flex-column="16" flex-align="center">
     <div flex-item="5">
-        <div class="bgc-grey-800 p+ pt0" style="opacity: 0.75">
+        <div id="signin-dialog" class="bgc-grey-800 p+ pt0">
             <lx-text-field lx-label="Usuario o correo electrónico" lx-error="user.username.length === 0" lx-allow-clear="true" lx-theme="dark">
                 <input class="inputLoginInfo" type="text" ng-model="user.username">
             </lx-text-field>
             <lx-text-field lx-label="Constraseña" lx-error="user.password.length === 0" lx-allow-clear="true" lx-theme="dark">
                 <input class="inputLoginInfo" type="password" ng-model="user.password">
             </lx-text-field>
-            <div flex-container="row" flex-column="12" flex-align="space-between center" style="margin-top: 2.5em">
+            <div id="signin-buttons-container" flex-container="row" flex-column="12" flex-align="space-between center">
                 <div flex-item="2"></div>
                 <a ui-sref="signup">
                     <button class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2">Registrarse</button>

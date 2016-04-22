@@ -3,15 +3,13 @@ package dataAccess.entities;
 import dataAccess.entities.enumerations.CustomerIdType;
 
 import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -33,27 +31,27 @@ public class Customer extends Account implements Serializable {
     @Column(name = "customer_id_type")
     private CustomerIdType customerIdType;
 
-    @ElementCollection(fetch=FetchType.EAGER)
-    @CollectionTable(name = "addresses", joinColumns = @JoinColumn(name = "account_id"))
-    @Column(name = "customer_addresses")
-    private List<String> addresses;
+    @NotNull
+    @Size(min = 1, max = 254)
+    @Column(name = "customer_address")
+    private String address;
 
-    @ElementCollection(fetch=FetchType.EAGER)
-    @CollectionTable(name = "phone_numbers", joinColumns = @JoinColumn(name = "account_id"))
-    @Column(name = "customer_phone_numbers")
-    private List<String> phoneNumbers;
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "customer_phone_number")
+    private String phoneNumber;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Order> placedOrders;
 
     public Customer() { }
 
-    public Customer(String firstName, String lastName, String username, String password, String email, long customerId, CustomerIdType customerIdType, List<String> addresses, List<String> phoneNumbers, List<Order> placedOrders) {
+    public Customer(String firstName, String lastName, String username, String password, String email, long customerId, CustomerIdType customerIdType, String address, String phoneNumber, List<Order> placedOrders) {
         super(firstName, lastName, username, password, email);
         this.customerId = customerId;
         this.customerIdType = customerIdType;
-        this.addresses = addresses;
-        this.phoneNumbers = phoneNumbers;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
         this.placedOrders = placedOrders;
     }
 
@@ -73,20 +71,20 @@ public class Customer extends Account implements Serializable {
         this.customerIdType = customerIdType;
     }
 
-    public List<String> getAddresses() {
-        return addresses;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddresses(List<String> addresses) {
-        this.addresses = addresses;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public List<String> getPhoneNumbers() {
-        return phoneNumbers;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhoneNumbers(List<String> phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public List<Order> getPlacedOrders() {
@@ -107,8 +105,8 @@ public class Customer extends Account implements Serializable {
 
         if (customerId != customer.customerId) return false;
         if (customerIdType != customer.customerIdType) return false;
-        if (addresses != null ? !addresses.equals(customer.addresses) : customer.addresses != null) return false;
-        if (phoneNumbers != null ? !phoneNumbers.equals(customer.phoneNumbers) : customer.phoneNumbers != null)
+        if (address != null ? !address.equals(customer.address) : customer.address != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(customer.phoneNumber) : customer.phoneNumber != null)
             return false;
         return placedOrders != null ? placedOrders.equals(customer.placedOrders) : customer.placedOrders == null;
 
@@ -119,8 +117,8 @@ public class Customer extends Account implements Serializable {
         int result = super.hashCode();
         result = 31 * result + (int) (customerId ^ (customerId >>> 32));
         result = 31 * result + (customerIdType != null ? customerIdType.hashCode() : 0);
-        result = 31 * result + (addresses != null ? addresses.hashCode() : 0);
-        result = 31 * result + (phoneNumbers != null ? phoneNumbers.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (placedOrders != null ? placedOrders.hashCode() : 0);
         return result;
     }
@@ -130,8 +128,8 @@ public class Customer extends Account implements Serializable {
         return "Customer{" +
                 "customerId=" + customerId +
                 ", customerIdType=" + customerIdType +
-                ", addresses=" + addresses +
-                ", phoneNumbers=" + phoneNumbers +
+                ", address=" + address +
+                ", phoneNumber=" + phoneNumber +
                 ", placedOrders=" + placedOrders +
                 '}';
     }

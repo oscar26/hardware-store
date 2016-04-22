@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="assets/css/stateChangeAnimation.css">
     <link rel="stylesheet" href="assets/css/fixedElements.css">
     <link rel="stylesheet" href="app/components/main/mainViewStyle.css">
+    <link rel="stylesheet" href="app/components/signin/signinViewStyle.css">
+    <link rel="stylesheet" href="app/components/productList/productListViewStyle.css">
 
     <!-- Libs -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/velocity/velocity.min.js"></script>
-    <script src="assets/libs/moment/min/moment-with-locales.min.js"></script>
+    <script src="assets/libs/moment/moment-with-locales.min.js"></script>
     <script src="assets/libs/angular/angular.min.js"></script>
     <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
@@ -84,7 +86,9 @@
 
     <!-- Main content (ruled by UI-Router) -->
     <div class="ui-view-container">
-        <div class="loading-dim bgc-white-2" ng-if="stateIsLoading"></div>
+        <div class="loading-dim bgc-white-2 tc-grey-700" ng-if="stateIsLoading">
+            Cargando...
+        </div>
         <section class="ui-view-element" ui-view ng-hide="stateIsLoading"></section>
     </div>
 
@@ -92,7 +96,7 @@
     <lx-progress lx-type="linear" lx-color="teal" ng-if="stateIsLoading"></lx-progress>
 
     <!-- Footer (fixed) -->
-    <div class="footer tc-white-1 bgc-blue-grey-900 p+" flex-container="row" flex-column="12" flex-gutter="24" flex-align="center">
+    <div class="footer tc-white-1 bgc-blue-grey-900 p+" flex-container="row" flex-column="12" flex-align="center">
         <div flex-item="6">
             <div class="p+">
                 <a href="#"><lx-icon lx-id="facebook-box" lx-size="m" lx-color="black" lx-type="circled"></lx-icon></a>
