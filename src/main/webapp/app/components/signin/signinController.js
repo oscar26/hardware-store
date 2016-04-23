@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 var signinController = angular.module('signinController', []);
 

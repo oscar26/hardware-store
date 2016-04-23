@@ -3,7 +3,8 @@
 var app = angular.module('app',
     [
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
-        'signinController', 'signinServices', 'signinDirectives'
+        'signinController', 'signinServices', 'signinDirectives',
+        'productListController'
     ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -34,7 +35,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
             .state('productList', {
                 url: "/productList",
-                templateUrl: "app/components/productList/productListView.html"
+                templateUrl: "app/components/productList/productListView.html",
+                controller: 'productListCtrl'
             });
 
     }

@@ -1,4 +1,12 @@
 .product-list-view-container {
-    margin-top: 8rem;
+    margin-top: 6rem;
     padding: 0 !important;
+}
+
+.product-list-view-container .fs-title {
+    font-size: 3em;
+}
+
+.product {
+    padding: 2em;
 }
