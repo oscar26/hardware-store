@@ -10,3 +10,15 @@
 .product {
     padding: 2em;
 }
+
+.product-list-tabs .tabs__link span {
+    font-size: 1.25em;
+}
+
+.product-list-tabs .tabs {
+    background-color: rgb(144, 164, 174);
+}
+
+#extra-info-dialog img {
+    margin: auto;
+}
