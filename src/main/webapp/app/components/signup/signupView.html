@@ -10,9 +10,9 @@
             <lx-text-field lx-label="Dirección" lx-error="user.address.length === 0" lx-allow-clear="true" lx-theme="dark">
                 <input class="inputLoginInfo" type="text" ng-model="user.address">
             </lx-text-field>
-            <div flex-item-order="2">
-                Tipo de documento:
-            </div>
+            <lx-text-field lx-label="Documento de identidad" lx-error="user.id.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.id">
+            </lx-text-field>
             <lx-radio-group>
                 <lx-radio-button name="cc" ng-value= 0 ng-model="vm.radioButtons.basic.test1">Cédula de ciudadanía</lx-radio-button>
                 <lx-radio-button name="ti" ng-value= 1 ng-model="vm.radioButtons.basic.test1">Tarjeta de identidad</lx-radio-button>
