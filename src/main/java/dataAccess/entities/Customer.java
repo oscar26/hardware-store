@@ -48,7 +48,8 @@ public class Customer extends Account implements Serializable {
 
     public Customer() { }
 
-    public Customer(String firstName, String lastName, String username, String password, String email, long customerId, CustomerIdType customerIdType, List<String> addresses, List<String> phoneNumbers, List<Order> placedOrders) {
+    public Customer(String firstName, String lastName, String username, String password, String email, long customerId,
+                    CustomerIdType customerIdType, List<String> addresses, List<String> phoneNumbers, List<Order> placedOrders) {
         super(firstName, lastName, username, password, email);
         this.customerId = customerId;
         this.customerIdType = customerIdType;
