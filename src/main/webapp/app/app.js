@@ -3,7 +3,8 @@
 var app = angular.module('app',
     [
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
-        'signinController', 'signinServices', 'signinDirectives'
+        'signinController', 'signinServices', 'signinDirectives',
+        'productListController'
     ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -29,13 +30,13 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
 
             .state('signout', {
-                url: "/signout",
-                redirectTo: "main"
+                url: "/signout"
             })
 
             .state('productList', {
                 url: "/productList",
-                templateUrl: "app/components/productList/productListView.html"
+                templateUrl: "app/components/productList/productListView.html",
+                controller: 'productListCtrl'
             });
 
     }
@@ -55,10 +56,8 @@ app.run(function ($rootScope, $localStorage, $state) {
             // Logout functionality
             if (toState.name === "signout") {
                 event.preventDefault();
+                $localStorage.$reset();
                 $state.go("main");
-                $rootScope.$storage.loggedUser = false;
-                $rootScope.$storage.username = '';
-                $rootScope.$storage.shoppingCart = null;
             }
         }
     );

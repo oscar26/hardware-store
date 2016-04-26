@@ -8,3 +8,6 @@
 # Build files
 build/*
 out/*
+
+# External DB props
+/src/main/resources/externalDB.properties

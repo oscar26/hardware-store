@@ -28,7 +28,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/dummy", method = RequestMethod.GET)
     public Customer dummy() {
-        Customer customer = new Customer("first name2", "last name2", "username2", "pass2", "email2", 22222, CustomerIdType.CC, null, null, null);
+        Customer customer = new Customer("first name2", "last name2", "username2", "pass2", "email2", 22222, CustomerIdType.CC, "address2", "phone2", null);
         customerService.saveCustomer(customer);
         return customer;
     }

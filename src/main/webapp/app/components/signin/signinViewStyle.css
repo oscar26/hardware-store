@@ -1,0 +1,18 @@
+.signin-view-container {
+    height: 100vh;
+    padding-top: 20em;
+    background: url('https://www.dropbox.com/s/vmavungn8vofn0j/login1.jpg?dl=1') no-repeat;
+    font-size: 1.1rem;
+}
+
+#signin-dialog {
+    opacity: .75;
+}
+
+#signin-buttons-container {
+    margin-top: 2em
+}
+
+#signin-buttons-container button {
+    font-size: 1.1rem;
+}
