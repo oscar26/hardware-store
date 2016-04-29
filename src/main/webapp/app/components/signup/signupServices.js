@@ -17,6 +17,7 @@ signupServices
             return {
                 doSignup: function (user) {
                     var info = user;
+                    console.log(user);
                     signupRequest.signup({}, info,
                         function success(response) {
                             console.log("Doing signup"); // Delete line

@@ -5,11 +5,11 @@ var signinController = angular.module('signupController', []);
 signinController.controller('signupCtrl', ['$scope',
     function ($scope) {
         $scope.user = {
-            customerid: null,
+            accountid: null,
             name: "Nombre",
             lastname: "Apellido",
             address: "Dirección",
-            id: "Documento de identidad",
+            customerid: "Documento de identidad",
             idtype: 0,
             phone: "Teléfono",
             mail: "Correo electrónico",
