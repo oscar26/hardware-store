@@ -1,1 +1,43 @@
-<b style="margin-top: 30em; position: absolute">signupView</b>
+<div flex-container="row" flex-column="16" flex-align="center" style="padding-top: 20em" ng-style="bgImage">
+    <div flex-item="5">
+        <div class="bgc-grey-800 p+ pt0" style="opacity: 0.75">
+            <lx-text-field lx-label="Nombre" lx-error="user.name.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.name">
+            </lx-text-field>
+            <lx-text-field lx-label="Apellido" lx-error="user.lastname.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.lastname">
+            </lx-text-field>
+            <lx-text-field lx-label="Dirección" lx-error="user.address.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.address">
+            </lx-text-field>
+            <lx-text-field lx-label="Documento de identidad" lx-error="user.id.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.customerid">
+            </lx-text-field>
+            <div class = "p+">
+                <lx-radio-group>
+                    <lx-radio-button class="inputLoginInfo" name="cc" ng-value= 0 ng-model="user.idtype">Cédula de ciudadanía</lx-radio-button>
+                    <lx-radio-button class="inputLoginInfo" name="ti" ng-value= 1 ng-model="user.idtype">Tarjeta de identidad</lx-radio-button>
+                    <lx-radio-button class="inputLoginInfo" name="pass" ng-value= 2 ng-model="user.idtype">Pasaporte</lx-radio-button>
+                </lx-radio-group>
+            </div>
+            <lx-text-field lx-label="Teléfono" lx-error="user.phone.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.phone">
+            </lx-text-field>
+            <lx-text-field lx-label="Correo electrónico" lx-error="user.mail.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.mail">
+            </lx-text-field>
+            <lx-text-field lx-label="Nombre de usuario" lx-error="user.username.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="text" ng-model="user.username">
+            </lx-text-field>
+            <lx-text-field lx-label="Contraseña" lx-error="user.password.length === 0" lx-allow-clear="true" lx-theme="dark">
+                <input class="inputLoginInfo" type="password" ng-model="user.password">
+            </lx-text-field>
+            <div flex-container="row" flex-column="12" flex-align="space-between center" style="margin-top: 2.5em">
+                <div flex-item="2"></div>
+                <a ui-sref="signup">
+                    <button class="signupButton btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Registrarse</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
