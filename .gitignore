@@ -11,3 +11,4 @@ out/*
 
 # External DB props
 /src/main/resources/externalDB.properties
+output/localDB.properties
