@@ -11,7 +11,5 @@ out/*
 
 # External DB props
 /src/main/resources/externalDB.properties
-output/localDB.properties
-src/main/resources/localDB.properties
 output/externalDB.properties
 src/main/webapp/WEB-INF/applicationContext.xml
