@@ -4,6 +4,7 @@ var app = angular.module('app',
     [
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
+        'signupController', 'signupServices', 'signupDirectives',
         'productListController'
     ]);
 
@@ -26,7 +27,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
             
             .state('signup', {
                 url: "/signup",
-                templateUrl: "app/components/signup/signupView.html"
+                templateUrl: "app/components/signup/signupView.html",
+                controller: 'signupCtrl'
             })
 
             .state('signout', {
