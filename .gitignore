@@ -2,11 +2,12 @@
 .idea
 
 # Gradle files
-.gradle/*
+.gradle
 
 # Build files
-build/*
-out/*
+build
+out
+output
 
 # External DB props
 src/main/resources/externalDB.properties
