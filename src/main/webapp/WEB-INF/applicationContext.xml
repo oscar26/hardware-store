@@ -19,6 +19,7 @@
 	   http://www.springframework.org/schema/util/spring-util.xsd
        ">
 
+    <!-- Property files must be created locally -->
     <context:property-placeholder location="classpath:localDB.properties"/>
     <!--<context:property-placeholder location="classpath:externalDB.properties"/>-->
 

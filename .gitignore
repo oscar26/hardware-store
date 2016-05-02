@@ -3,13 +3,11 @@
 
 # Gradle files
 .gradle/*
-*.iml
 
 # Build files
 build/*
 out/*
 
 # External DB props
-/src/main/resources/externalDB.properties
-output/externalDB.properties
-src/main/webapp/WEB-INF/applicationContext.xml
+src/main/resources/externalDB.properties
+src/main/resources/localDB.properties
