@@ -1,150 +1,19 @@
 <div class="product-list-view-container p+" flex-container="column" flex-align="center">
     <div class="p+" flex-container="row" flex-column="16" flex-align="center">
-        <div flex-item="13">
-            <span class="fs-title display-block mb">Productos</span>
+        <div flex-item="10">
             <div class="divider divider--dark"></div>
+            <div class="p+" flex-container="row" flex-column="12" flex-align="space-between center">
+                <div id="btn1-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
+                    <a ui-sref="houses"><button id="btn1" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2">Startup 1</button></a>
+                </div>
+                <div id="btn2-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
+                    <a ui-sref="furniture"><button id="btn2" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2">JMuebles</button></a>
+                </div>
+                <div id="btn3-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
+                    <a ui-sref="shoes"><button id="btn3" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2">Startup 3</button></a>
+                </div>
+            </div>
+            <div class="divider divider--light"></div>
         </div>
     </div>
-
-    <div class="p+" flex-container="row" flex-column="16" flex-align="center">
-        <!-- Product search options -->
-        <div class="search-options" flex-item="3" flex-item-order="1" style="display: none">
-            <div class="p+ card"></div>
-        </div>
-
-        <!-- Tabs for the different ideas -->
-        <div class="product-list-tabs" flex-item="13" flex-item-order="2" flex-container="column">
-            <div class="p+ bgc-blue-grey-300" flex-container="row">
-                <div flex-item>
-                    <div class="card">
-                        <div class="toolbar">
-                            <lx-search-filter>
-                                <input type="text" ng-model="searchOptions.term" placeholder="Buscar producto...">
-                            </lx-search-filter>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p+ bgc-blue-grey-100" flex-container="row">
-                <lx-tabs lx-theme="dark" lx-color="blue-grey" lx-indicator="deep-orange">
-                    <!-- Startup 1 tab -->
-                    <lx-tab lx-label="Startup 1">
-                        <div flex-container="row" flex-wrap>
-                            <div class="product" flex-item="3" ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                                <div class="card">
-                                    <div class="card__img card__img--top">
-                                        <img src="http://placehold.it/400x300">
-                                        <span class="fs-headline tc-white-1 display-block">Header {{i}}</span>
-                                    </div>
-
-                                    <div class="p+">
-                                        <span class="fs-subhead tc-black-2 display-block">Subheader {{i}}</span>
-
-                                        <div class="paragraph fs-body-1">
-                                            <p>Info {{i}} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="card__actions">
-                                        <lx-button lx-color="green" lx-type="icon" ng-click="addToShoppingCart(i)"><i class="mdi mdi-cart-outline"></i></lx-button>
-                                        <lx-button lx-color="orange" lx-type="flat" ng-click="openDialog(i, 0)">Ver más</lx-button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </lx-tab>
-
-                    <!-- Startup 2 tab -->
-                    <lx-tab lx-label="Startup 2">
-                        <div flex-container="row" flex-wrap>
-                            <div class="product" flex-item="3" ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8]">
-                                <div class="card">
-                                    <div class="card__img card__img--top">
-                                        <img src="http://placehold.it/400x300">
-                                        <span class="fs-headline tc-white-1 display-block">Header {{i}}</span>
-                                    </div>
-
-                                    <div class="p+">
-                                        <span class="fs-subhead tc-black-2 display-block">Subheader {{i}}</span>
-
-                                        <div class="paragraph fs-body-1">
-                                            <p>Info {{i}} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="card__actions">
-                                        <lx-button lx-color="green" lx-type="icon" ng-click="addToShoppingCart(i)"><i class="mdi mdi-cart-outline"></i></lx-button>
-                                        <lx-button lx-color="orange" lx-type="flat" ng-click="openDialog(i, 1)">Ver más</lx-button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </lx-tab>
-
-                    <!-- Startup 3 tab -->
-                    <lx-tab lx-label="Startup 3">
-                        <div flex-container="row" flex-wrap>
-                            <div class="product" flex-item="3" ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]">
-                                <div class="card">
-                                    <div class="card__img card__img--top">
-                                        <img src="http://placehold.it/400x300">
-                                        <span class="fs-headline tc-white-1 display-block">Header {{i}}</span>
-                                    </div>
-
-                                    <div class="p+">
-                                        <span class="fs-subhead tc-black-2 display-block">Subheader {{i}}</span>
-
-                                        <div class="paragraph fs-body-1">
-                                            <p>Info {{i}} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="card__actions">
-                                        <lx-button lx-color="green" lx-type="icon" ng-click="addToShoppingCart(i)"><i class="mdi mdi-cart-outline"></i></lx-button>
-                                        <lx-button lx-color="orange" lx-type="flat" ng-click="openDialog(i, 2)">Ver más</lx-button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </lx-tab>
-                </lx-tabs>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <lx-dialog id="{{ dialogOptions.dialogId }}">
-        <lx-dialog-header>
-            <div class="toolbar bgc-blue-grey-900 pl++">
-                <span class="toolbar__label tc-white fs-title">
-                    Header 1
-                </span>
-            </div>
-        </lx-dialog-header>
-
-        <lx-dialog-content>
-            <div class="p++">
-                Item info id: {{dialogOptions.selectedItemId}}
-                <div class="card">
-                    <div class="card__img card__img--top">
-                        <img src="http://placehold.it/400x300">
-                    </div>
-
-                    <div class="p+">
-                        <span class="fs-subhead tc-black-2 display-block">Subheader {{dialogOptions.selectedItemId}}</span>
-
-                        <div class="paragraph fs-body-1">
-                            <p>Info {{dialogOptions.selectedItemId}} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </lx-dialog-content>
-
-        <lx-dialog-footer>
-            <lx-button lx-color="green" lx-type="icon" ng-click="addToShoppingCart(dialogOptions.selectedItemId)"><i class="mdi mdi-cart-outline"></i></lx-button>
-            <lx-button lx-color="red" lx-type="flat" lx-dialog-close>Cancel</lx-button>
-        </lx-dialog-footer>
-    </lx-dialog>
 </div>

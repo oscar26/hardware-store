@@ -39,6 +39,18 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url: "/productList",
                 templateUrl: "app/components/productList/productListView.html",
                 controller: 'productListCtrl'
+            })
+
+            .state('houses', {
+                url: "/houses"
+            })
+
+            .state('furniture', {
+                url: "/furniture"
+            })
+
+            .state('shoes', {
+                url: "/shoes"
             });
 
     }
@@ -48,8 +60,7 @@ app.run(function ($rootScope, $localStorage, $state) {
 
     $rootScope.$storage = $localStorage.$default({
         loggedUser: false,
-        username: '',
-        shoppingCart: null
+        username: ''
     });
 
     $rootScope.$on('$stateChangeStart',
