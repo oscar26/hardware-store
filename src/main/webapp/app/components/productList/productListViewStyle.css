@@ -41,7 +41,7 @@
         background: none !important;
     }
 
-    #btn1, #btn2 {
+    .product-list-view-container #btn1 {
         background: rgba(51,105,30,0.7) !important;
     }
 

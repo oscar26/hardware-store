@@ -1,0 +1,55 @@
+<div class="furniture-view-container p+" flex-container="column">
+    <div class="p+" flex-container="row" flex-column="16" flex-align="center">
+        <div flex-item="12">
+            <div class="p+" flex-container="row" flex-column="12" flex-align="left">
+                <div flex-container="column" flex-align="center">
+                    <span class="fs-display-3 display-block">JMuebles</span>
+                </div>
+            </div>
+
+            <div class="divider divider--dark"></div>
+
+            <div class="p+ buttons-container" flex-container="row" flex-column="12" flex-align="space-between center">
+                <div id="btn1-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
+                    <button id="btn1" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2" ng-click="tabs.activeTab = 0">Producto 1</button>
+                </div>
+                <div id="btn2-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
+                    <button id="btn2" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2" ng-click="tabs.activeTab = 1">Producto 2</button>
+                </div>
+                <div id="btn3-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
+                    <button id="btn3" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2" ng-click="tabs.activeTab = 2">Producto 3</button>
+                </div>
+                <div id="btn4-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
+                    <button id="btn4" class="btn btn--m btn--flat tc-white-1" lx-ripple="white-2" ng-click="tabs.activeTab = 3">Producto 4</button>
+                </div>
+            </div>
+
+            <div class="p+ tabs-container" flex-container="row" flex-column="12" flex-align="center">
+                <div flex-item="12" flex-container="column" flex-align="center">
+                    <lx-tabs lx-theme="dark" lx-indicator="deep-orange" lx-active-tab="tabs.activeTab">
+                        <!-- Product 1 tab -->
+                        <lx-tab>
+                            Tab1
+                            {{products.product1}}
+                        </lx-tab>
+
+                        <!-- Product 2 tab -->
+                        <lx-tab>
+                            Tab2
+                        </lx-tab>
+
+                        <!-- Product 3 tab -->
+                        <lx-tab>
+                            Tab3
+                        </lx-tab>
+
+                        <!-- Product 4 tab -->
+                        <lx-tab>
+                            Tab4
+                        </lx-tab>
+                    </lx-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@ var app = angular.module('app',
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
         'signupController', 'signupServices', 'signupDirectives',
-        'productListController'
+        'furnitureController', 'furnitureServices', 'furnitureDirectives'
     ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -37,8 +37,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
             .state('productList', {
                 url: "/productList",
-                templateUrl: "app/components/productList/productListView.html",
-                controller: 'productListCtrl'
+                templateUrl: "app/components/productList/productListView.html"
             })
 
             .state('houses', {
@@ -46,7 +45,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
 
             .state('furniture', {
-                url: "/furniture"
+                url: "/furniture",
+                templateUrl: "app/components/furniture/furnitureView.html",
+                controller: 'furnitureCtrl'
             })
 
             .state('shoes', {
