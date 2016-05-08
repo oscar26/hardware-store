@@ -1,22 +1,26 @@
 'user strict';
 
-var signupController = angular.module('signupController', []);
+var signinController = angular.module('signupController', []);
 
-signupController.controller('signupCtrl', ['$scope',
+signinController.controller('signupCtrl', ['$scope',
     function ($scope) {
         $scope.user = {
-            accountId: null,
-            firstName: "",
-            lastName: "",
-            address: "",
-            customerId: "",
-            customerIdType: "CC",
-            phoneNumber: "",
-            email: "",
-            username: "",
-            password: "",
-            placedOrders: null
+            accountid: null,
+            name: "Nombre",
+            lastname: "Apellido",
+            address: "Dirección",
+            customerid: "Documento de identidad",
+            idtype: 0,
+            phone: "Teléfono",
+            mail: "Correo electrónico",
+            username: "Usuario",
+            password: "Contraseña",
+            placedorders: null
 
         };
+        $scope.bgImage = {
+            height: '100vh',
+            background: 'url(http://www.planwallpaper.com/static/images/i-should-buy-a-boat.jpg)'
+        }
     }
 ]);

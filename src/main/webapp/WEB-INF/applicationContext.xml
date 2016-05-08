@@ -19,7 +19,6 @@
 	   http://www.springframework.org/schema/util/spring-util.xsd
        ">
 
-    <!-- Property files must be created locally -->
     <context:property-placeholder location="classpath:localDB.properties"/>
     <!--<context:property-placeholder location="classpath:externalDB.properties"/>-->
 
@@ -35,7 +34,7 @@
                 <prop key="hibernate.current_session_context_class">thread</prop>
             </props>
         </property>
-    </bean>
+    </bean> 
 
     <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driver}"/>
@@ -49,11 +48,11 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" mode="proxy" proxy-target-class="true"/>
-
+    
     <bean id="genericDao" class="dataAccess.dao.imp.GenericDAO" autowire="byName" scope="prototype">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+    
     <!-- DAO's beans-->
     <bean id="accountDAO" class="dataAccess.dao.imp.AccountDAO" autowire="byName" scope="prototype" parent="genericDao"/>
     <bean id="administratorDAO" class="dataAccess.dao.imp.AdministratorDAO" autowire="byName" scope="prototype" parent="genericDao"/>
