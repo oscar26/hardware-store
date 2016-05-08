@@ -5,7 +5,8 @@ var app = angular.module('app',
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
         'signupController', 'signupServices', 'signupDirectives',
-        'productListController'
+        'orderServices', 'orderDirectives',
+        'housesController', 'furnitureController', 'shoesController'
     ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -37,8 +38,25 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
             .state('productList', {
                 url: "/productList",
-                templateUrl: "app/components/productList/productListView.html",
-                controller: 'productListCtrl'
+                templateUrl: "app/components/productList/productListView.html"
+            })
+
+            .state('houses', {
+                url: "/houses",
+                templateUrl: "app/components/houses/housesView.html",
+                controller: 'housesCtrl'
+            })
+
+            .state('furniture', {
+                url: "/furniture",
+                templateUrl: "app/components/furniture/furnitureView.html",
+                controller: 'furnitureCtrl'
+            })
+
+            .state('shoes', {
+                url: "/shoes",
+                templateUrl: "app/components/shoes/shoesView.html",
+                controller: 'shoesCtrl'
             });
 
     }
@@ -48,8 +66,7 @@ app.run(function ($rootScope, $localStorage, $state) {
 
     $rootScope.$storage = $localStorage.$default({
         loggedUser: false,
-        username: '',
-        shoppingCart: null
+        username: ''
     });
 
     $rootScope.$on('$stateChangeStart',

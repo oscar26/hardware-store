@@ -1,0 +1,78 @@
+.houses-view-container {
+    min-height: 100vh;
+    padding: 0 !important;
+    margin-top: 66px;
+}
+
+.houses-view-container .button-container {
+    text-align: center;
+    height: 15em;
+}
+
+.houses-view-container .button-container a {
+    height: 100%;
+    width: 100%;
+    background: rgba(38,50,56,0.5) !important;
+}
+
+.houses-view-container .button-container .btn {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    font-size: 2em;
+    padding: 0;
+}
+
+.houses-view-container #btn1-container {
+    background: url('http://placehold.it/400x400') no-repeat center;
+}
+
+@media (max-width: 1023px) {
+    .houses-view-container .button-container {
+        background: none !important;
+    }
+
+    .houses-view-container #btn1 {
+        background: rgba(51,105,30,0.7) !important;
+    }
+}
+
+.houses-view-container .buttons-container {
+    padding-bottom: 0 !important;
+}
+
+.houses-view-container .tabs-container {
+    padding-top: 0 !important;
+}
+
+.houses-view-container .tabs__links, .houses-view-container .tabs__link, .houses-view-container .tabs__indicator {
+    height: 5px;
+}
+
+.houses-view-container .tabs__links {
+    background-color: #263238 !important;
+}
+
+.houses-view-container .tabs__indicator {
+    top: 0;
+}
+
+.houses-view-container .tabs-container .product-image-container {
+    padding-top: 5em;
+}
+
+.houses-view-container .tabs-container .product-description {
+    padding: 5rem 15rem 7.5rem 15rem;
+    text-align: center;
+}
+
+.houses-view-container .product-form-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.houses-view-container .product-form-container .radio-button-container,
+.houses-view-container .product-form-container .dropdown-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

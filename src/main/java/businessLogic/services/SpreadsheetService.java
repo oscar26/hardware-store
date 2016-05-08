@@ -5,15 +5,14 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Gerardth on 29/04/2016.
  */
-public class SpreadSheetService {
+public class SpreadsheetService {
 
-    public ByteArrayOutputStream generateExcelFile(ArrayList<String> nombre, ArrayList<String> valor){
-
+    public ByteArrayOutputStream generateExcelFile(List<String> nombre, List<String> valor) {
         try {
 
             HSSFWorkbook workbook = new HSSFWorkbook();
