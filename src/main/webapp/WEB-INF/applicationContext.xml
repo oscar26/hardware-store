@@ -72,7 +72,7 @@
     <bean id="itemService" class="businessLogic.services.ItemService" autowire="byName" scope="singleton"/>
     <bean id="orderBillService" class="businessLogic.services.OrderBillService" autowire="byName" scope="singleton"/>
     <bean id="orderService" class="businessLogic.services.OrderService" autowire="byName" scope="singleton"/>
-    <bean id="spreadSheetService" class="businessLogic.services.SpreadSheetService" autowire="byName" scope="singleton"/>
+    <bean id="spreadSheetService" class="businessLogic.services.SpreadsheetService" autowire="byName" scope="singleton"/>
     <bean id="mailService" class="businessLogic.services.MailService" autowire="byName" scope="singleton"/>
 
     <!-- Message JSON converters -->

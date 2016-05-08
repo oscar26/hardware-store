@@ -4,7 +4,7 @@ import businessLogic.controllers.requestWrappers.OrderRequest;
 import businessLogic.controllers.statuses.GenericResponseStatus;
 import businessLogic.services.CustomerService;
 import businessLogic.services.MailService;
-import businessLogic.services.SpreadSheetService;
+import businessLogic.services.SpreadsheetService;
 import dataAccess.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,32 +29,54 @@ public class OrderController {
     private CustomerService customerService;
 
     @Autowired
-    private SpreadSheetService spreadSheetService;
+    private SpreadsheetService spreadsheetService;
 
     @Autowired
     private MailService mailService;
 
     @RequestMapping(value = "/houses", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> processHousesOrder(@RequestBody OrderRequest orderRequest) {
-        System.out.println("Houses request");
-        System.out.println(orderRequest);
-        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        System.out.println("Houses request received");
+        boolean success = mailService.sendEmail(
+                spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
+                "omdej@unal.edu.co",
+                "[HOUSES] Asunto",
+                "Cuerpo del mensaje"
+        );
+        if (success)
+            return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(new GenericResponseStatus(1, "ERROR: email sending failed."), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/furniture", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> processFurnitureOrder(@RequestBody OrderRequest orderRequest) {
-        List<String> mergedProperties = mergeProperties(orderRequest);
-        List<String> mergedValues = mergeValues(orderRequest);
-        // Create xls
-        // Send email. Check if successful or not.
-        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        System.out.println("Furniture request received");
+        boolean success = mailService.sendEmail(
+                spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
+                "omdej@unal.edu.co",
+                "[FURNITURE] Asunto",
+                "Cuerpo del mensaje"
+        );
+        if (success)
+            return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(new GenericResponseStatus(1, "ERROR: email sending failed."), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/shoes", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> processShoesOrder(@RequestBody OrderRequest orderRequest) {
-        System.out.println("Shoes request");
-        System.out.println(orderRequest);
-        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        System.out.println("Shoes request received");
+        boolean success = mailService.sendEmail(
+                spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
+                "omdej@unal.edu.co",
+                "[SHOES] Asunto",
+                "Cuerpo del mensaje"
+        );
+        if (success)
+            return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(new GenericResponseStatus(1, "ERROR: email sending failed."), HttpStatus.OK);
     }
 
     private List<String> mergeProperties(OrderRequest orderRequest) {
@@ -92,12 +114,12 @@ public class OrderController {
         this.customerService = customerService;
     }
 
-    public SpreadSheetService getSpreadSheetService() {
-        return spreadSheetService;
+    public SpreadsheetService getSpreadsheetService() {
+        return spreadsheetService;
     }
 
-    public void setSpreadSheetService(SpreadSheetService spreadSheetService) {
-        this.spreadSheetService = spreadSheetService;
+    public void setSpreadsheetService(SpreadsheetService spreadsheetService) {
+        this.spreadsheetService = spreadsheetService;
     }
 
     public MailService getMailService() {

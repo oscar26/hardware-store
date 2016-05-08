@@ -1,16 +1,24 @@
 package businessLogic.services;
 
-import java.io.*;
-import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
+import java.io.ByteArrayOutputStream;
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
 /**
  * Created by Gerardth on 29/04/2016.
  */
 public class MailService {
+
     public boolean sendEmail(ByteArrayOutputStream file, String destinatario, String subject, String cuerpoMensaje) {
 
         Properties props = new Properties();
