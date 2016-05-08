@@ -65,14 +65,15 @@
     <!-- Controllers -->
     <bean id="customerController" class="businessLogic.controllers.CustomerController" autowire="byName" scope="singleton"/>
     <bean id="loginController" class="businessLogic.controllers.LoginController" autowire="byName" scope="singleton"/>
+    <bean id="orderController" class="businessLogic.controllers.OrderController" autowire="byName" scope="singleton"/>
 
     <!-- Services -->
     <bean id="customerService" class="businessLogic.services.CustomerService" autowire="byName" scope="singleton"/>
     <bean id="itemService" class="businessLogic.services.ItemService" autowire="byName" scope="singleton"/>
     <bean id="orderBillService" class="businessLogic.services.OrderBillService" autowire="byName" scope="singleton"/>
     <bean id="orderService" class="businessLogic.services.OrderService" autowire="byName" scope="singleton"/>
-    <bean id="SpreadSheetService" class="businessLogic.services.SpreadSheetService" autowire="byName" scope="singleton"/>
-    <bean id="MailService" class="businessLogic.services.MailService" autowire="byName" scope="singleton"/>
+    <bean id="spreadSheetService" class="businessLogic.services.SpreadSheetService" autowire="byName" scope="singleton"/>
+    <bean id="mailService" class="businessLogic.services.MailService" autowire="byName" scope="singleton"/>
 
     <!-- Message JSON converters -->
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">

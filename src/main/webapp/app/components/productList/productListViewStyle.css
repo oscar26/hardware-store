@@ -13,6 +13,7 @@
 .product-list-view-container .button-container a {
     height: 100%;
     width: 100%;
+    background: rgba(38,50,56,0.7) !important;
 }
 
 .product-list-view-container .button-container .btn {
@@ -21,7 +22,6 @@
     border-radius: 0;
     font-size: 2em;
     padding: 0;
-    background: rgba(38,50,56,0.7) !important;
 }
 
 .product-list-view-container #btn1-container {

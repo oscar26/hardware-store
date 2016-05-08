@@ -6,19 +6,18 @@ furnitureServices
 
     .factory('orderRequest', ['$resource',
         function($resource) {
-            return $resource('resources/furniture', {} , {
+            return $resource('resources/order/furniture', {} , {
                 sendOrder: { method: 'POST' }
             });
         }
     ])
 
-    .factory('sendOrderAction', ['$rootScope', '$state', 'loginRequest', 'LxNotificationService',
-        function ($rootScope, $state, loginRequest, LxNotificationService) {
+    .factory('sendOrderAction', ['$rootScope', 'orderRequest', 'LxNotificationService',
+        function ($rootScope, orderRequest, LxNotificationService) {
             return {
-                doOrder: function (scope) {
+                doOrder: function (packet) {
                     $rootScope.stateIsLoading = true; // Shows loading splash
-                    var info = {username: scope.user.username, password: scope.user.password};
-                    orderRequest.sendOrder({}, info,
+                    orderRequest.sendOrder({}, packet,
                         function success(response) {
                             console.log("Sending order"); // Delete line
                             console.log(response); // Delete line

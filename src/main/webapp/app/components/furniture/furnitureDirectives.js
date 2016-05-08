@@ -1,33 +1,27 @@
 'use strict';
 
 var furnitureDirectives = angular.module('furnitureDirectives', []);
-/*
+
 furnitureDirectives
     
-    .directive('signinButton', ['loginAction',
-        function (loginAction) {
+    .directive('sendOrderButton', ['sendOrderAction', '$rootScope',
+        function (sendOrderAction, $rootScope) {
             return {
                 restrict: 'C',
                 link: function (scope, element) {
                     element.bind('click', function (event) {
-                        loginAction.doLogin(scope);
-                    });
-                }
-            }
-        }
-    ])
-
-    .directive('inputLoginInfo', ['loginAction',
-        function (loginAction) {
-            return {
-                restrict: 'C',
-                link: function (scope, element) {
-                    element.bind('keypress', function (event) {
-                        if (event.which === 13) {
-                            loginAction.doLogin(scope);
+                        var packet = {
+                            username: $rootScope.$storage.username,
+                            properties: [],
+                            values: []
+                        };
+                        for (var i = 0; i < scope.productProperties.length; i++) {
+                            packet.properties.push(scope.productProperties[i].name);
+                            packet.values.push(String(scope.productProperties[i].value));
                         }
+                        sendOrderAction.doOrder(packet);
                     });
                 }
             }
         }
-    ]);*/
+    ]);
