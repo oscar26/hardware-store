@@ -33,7 +33,7 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Customer> retrieveAllCustomers() {
         System.out.println("Retrieving ALL customers");
         return customerService.getAllCustomers();
@@ -57,7 +57,7 @@ public class CustomerController {
         return customerService.getByCustomerId(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<GenericResponseStatus> createCustomer(@RequestBody Customer customer) {
         System.out.println("Creating customer {" + customer.getUsername() + "}");
 
