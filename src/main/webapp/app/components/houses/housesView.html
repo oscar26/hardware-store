@@ -1,26 +1,9 @@
-<div class="furniture-view-container p+" flex-container="column">
+<div class="houses-view-container p+" flex-container="column">
     <div class="p+" flex-container="row" flex-column="16" flex-align="center">
         <div flex-item="12">
             <div class="p+" flex-container="row" flex-column="12" flex-align="left">
                 <div flex-container="column" flex-align="center">
-                    <span class="fs-display-3 display-block">JMuebles</span>
-                </div>
-            </div>
-
-            <div class="divider divider--dark"></div>
-
-            <div class="p+ buttons-container" flex-container="row" flex-column="12" flex-align="space-between center">
-                <div id="btn1-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
-                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 0">Producto 1</button></a>
-                </div>
-                <div id="btn2-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
-                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 1">Producto 2</button></a>
-                </div>
-                <div id="btn3-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
-                    <a><button id="btn3" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 2">Producto 3</button></a>
-                </div>
-                <div id="btn4-container" class="button-container" flex-item="3" flex-container="column" flex-align="center">
-                    <a><button id="btn4" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 3">Producto 4</button></a>
+                    <span class="fs-display-3 display-block">Houses</span>
                 </div>
             </div>
 
@@ -28,7 +11,7 @@
                 <div flex-item="12" flex-container="column" flex-align="center">
                     <!-- Not sure if four different forms (one for each product) or just a generic one leaving
                          the tabs as mere decoration or options setting. -->
-                    <lx-tabs lx-theme="dark" lx-indicator="deep-orange" lx-active-tab="productProperties[0].value">
+                    <lx-tabs lx-theme="dark" lx-indicator="blue-grey" lx-active-tab="tabs.activeTab">
                         <!-- Product 1 tab -->
                         <lx-tab>
                             <div flex-container="column" flex-align="space-between center">
@@ -37,48 +20,6 @@
                                 </div>
                                 <div class="product-description">
                                     (Descripción del producto 1) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
-                                </div>
-                            </div>
-                        </lx-tab>
-
-                        <!-- Product 2 tab -->
-                        <lx-tab>
-                            <div flex-container="column" flex-align="space-between center">
-                                <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
-                                </div>
-                                <div class="product-description">
-                                    (Descripción del producto 2) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
-                                </div>
-                            </div>
-                        </lx-tab>
-
-                        <!-- Product 3 tab -->
-                        <lx-tab>
-                            <div flex-container="column" flex-align="space-between center">
-                                <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
-                                </div>
-                                <div class="product-description">
-                                    (Descripción del producto 3) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
-                                </div>
-                            </div>
-                        </lx-tab>
-
-                        <!-- Product 4 tab -->
-                        <lx-tab>
-                            <div flex-container="column" flex-align="space-between center">
-                                <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
-                                </div>
-                                <div class="product-description">
-                                    (Descripción del producto 4) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                                     Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
                                     dis parturient montes, nascetur ridiculus mus.
                                 </div>

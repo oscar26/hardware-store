@@ -1,10 +1,10 @@
 'use strict';
 
-var furnitureController = angular.module('furnitureController', []);
+var shoesController = angular.module('shoesController', []);
 
-furnitureController.controller('furnitureCtrl', ['$scope',
+shoesController.controller('shoesCtrl', ['$scope',
     function ($scope) {
-        $scope.destination = "furniture";
+        $scope.destination = "shoes";
 
         // Fields in spanish for compatibility with the other groups
         $scope.productProperties = [
@@ -43,25 +43,5 @@ furnitureController.controller('furnitureCtrl', ['$scope',
                 name: "dato9", type: "checkbox", value: false
             }
         ];
-        
-        /* Comment 2
-        $scope.product = {};
-        for (var i = 0; i < $scope.productProperties.length; i++)
-            $scope.product[$scope.productProperties[i].name] = "";*/
-
-        /* Comment 1
-        $scope.productProperties = ["dato1", "dato2", "dato3", "dato4", "dato5"];
-        $scope.products = {
-            product1: {},
-            product2: {},
-            product3: {},
-            product4: {}
-        };
-
-        for (var product in $scope.products) {
-            if ($scope.products.hasOwnProperty(product))
-                for (var i = 0; i < $scope.productProperties.length; i++)
-                    $scope.products[product][$scope.productProperties[i]] = "";
-        }*/
     }
 ]);

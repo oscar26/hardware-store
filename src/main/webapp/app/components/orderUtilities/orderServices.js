@@ -1,12 +1,12 @@
 'use strict';
 
-var furnitureServices = angular.module('furnitureServices', ['ngResource']);
+var orderServices = angular.module('orderServices', ['ngResource']);
 
-furnitureServices
+orderServices
 
     .factory('orderRequest', ['$resource',
         function($resource) {
-            return $resource('resources/order/furniture', {} , {
+            return $resource('resources/order/:destination', {destination: '@dest'} , {
                 sendOrder: { method: 'POST' }
             });
         }
@@ -15,9 +15,9 @@ furnitureServices
     .factory('sendOrderAction', ['$rootScope', 'orderRequest', 'LxNotificationService',
         function ($rootScope, orderRequest, LxNotificationService) {
             return {
-                doOrder: function (packet) {
+                doOrder: function (packet, dest) {
                     $rootScope.stateIsLoading = true; // Shows loading splash
-                    orderRequest.sendOrder({}, packet,
+                    orderRequest.sendOrder({destination: dest}, packet,
                         function success(response) {
                             console.log("Sending order"); // Delete line
                             console.log(response); // Delete line

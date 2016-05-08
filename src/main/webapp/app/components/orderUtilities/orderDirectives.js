@@ -1,10 +1,8 @@
 'use strict';
 
-var furnitureDirectives = angular.module('furnitureDirectives', []);
+var orderDirectives = angular.module('orderDirectives', []);
 
-furnitureDirectives
-    
-    .directive('sendOrderButton', ['sendOrderAction', '$rootScope',
+orderDirectives.directive('sendOrderButton', ['sendOrderAction', '$rootScope',
         function (sendOrderAction, $rootScope) {
             return {
                 restrict: 'C',
@@ -19,7 +17,7 @@ furnitureDirectives
                             packet.properties.push(scope.productProperties[i].name);
                             packet.values.push(String(scope.productProperties[i].value));
                         }
-                        sendOrderAction.doOrder(packet);
+                        sendOrderAction.doOrder(packet, scope.destination);
                     });
                 }
             }
