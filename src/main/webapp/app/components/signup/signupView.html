@@ -1,42 +1,54 @@
-<div flex-container="row" flex-column="16" flex-align="center" style="padding-top: 20em" ng-style="bgImage">
+<div class="signup-view-container" flex-container="row" flex-column="16" flex-align="center">
     <div flex-item="5">
-        <div class="bgc-grey-800 p+ pt0" style="opacity: 0.75">
-            <lx-text-field lx-label="Nombre" lx-error="user.name.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.name">
-            </lx-text-field>
-            <lx-text-field lx-label="Apellido" lx-error="user.lastname.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.lastname">
-            </lx-text-field>
-            <lx-text-field lx-label="Dirección" lx-error="user.address.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.address">
-            </lx-text-field>
-            <lx-text-field lx-label="Documento de identidad" lx-error="user.id.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.customerid">
-            </lx-text-field>
-            <div class = "p+">
-                <lx-radio-group>
-                    <lx-radio-button class="inputLoginInfo" name="cc" ng-value= 0 ng-model="user.idtype">Cédula de ciudadanía</lx-radio-button>
-                    <lx-radio-button class="inputLoginInfo" name="ti" ng-value= 1 ng-model="user.idtype">Tarjeta de identidad</lx-radio-button>
-                    <lx-radio-button class="inputLoginInfo" name="pass" ng-value= 2 ng-model="user.idtype">Pasaporte</lx-radio-button>
-                </lx-radio-group>
+        <div id="signup-dialog" class="bgc-grey-800 p+ pt0">
+            <div class="p+">
+                <span class="fs-headline display-block tc-white-1">Registro</span>
             </div>
-            <lx-text-field lx-label="Teléfono" lx-error="user.phone.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.phone">
-            </lx-text-field>
-            <lx-text-field lx-label="Correo electrónico" lx-error="user.mail.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.mail">
-            </lx-text-field>
-            <lx-text-field lx-label="Nombre de usuario" lx-error="user.username.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="text" ng-model="user.username">
-            </lx-text-field>
-            <lx-text-field lx-label="Contraseña" lx-error="user.password.length === 0" lx-allow-clear="true" lx-theme="dark">
-                <input class="inputLoginInfo" type="password" ng-model="user.password">
-            </lx-text-field>
-            <div flex-container="row" flex-column="12" flex-align="space-between center" style="margin-top: 2.5em">
-                <div flex-item="2"></div>
-                <a ui-sref="signup">
-                    <button class="signupButton btn btn--m btn--primary btn--flat tc-white-1" lx-ripple="indigo-500">Registrarse</button>
-                </a>
+
+            <div class="divider divider--light"></div>
+
+            <form name="signupForm">
+                <lx-text-field lx-label="Nombre" lx-error="user.firstName.length === 0 && !signupForm.firstName.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="firstName" ng-model="user.firstName">
+                </lx-text-field>
+                <lx-text-field lx-label="Apellido" lx-error="user.lastName.length === 0 && !signupForm.lastName.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="lastName" ng-model="user.lastName">
+                </lx-text-field>
+                <lx-text-field lx-label="Dirección" lx-error="user.address.length === 0 && !signupForm.address.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="address" ng-model="user.address">
+                </lx-text-field>
+                <lx-text-field lx-label="Documento de identidad" lx-error="user.customerId.length === 0 && !signupForm.customerId.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="customerId" ng-model="user.customerId">
+                </lx-text-field>
+
+                <div class="divider divider--dark"></div>
+
+                <span class="fs-title display-block tc-white-1">Tipo de documento</span>
+                <div class = "p+ tc-white-1">
+                    <lx-radio-group>
+                        <lx-radio-button name="customerIdType" value="CC" ng-model="user.customerIdType" lx-color="blue">Cédula de ciudadanía</lx-radio-button>
+                        <lx-radio-button name="customerIdType" value="TI" ng-model="user.customerIdType" lx-color="blue">Tarjeta de identidad</lx-radio-button>
+                        <lx-radio-button name="customerIdType" value="PASSPORT" ng-model="user.customerIdType" lx-color="blue">Pasaporte</lx-radio-button>
+                    </lx-radio-group>
+                </div>
+
+                <div class="second-divider divider divider--dark"></div>
+
+                <lx-text-field lx-label="Teléfono" lx-error="user.phoneNumber.length === 0 && !signupForm.phoneNumber.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="phoneNumber" ng-model="user.phoneNumber">
+                </lx-text-field>
+                <lx-text-field lx-label="Correo electrónico" lx-error="user.email.length === 0 && !signupForm.email.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="email" ng-model="user.email">
+                </lx-text-field>
+                <lx-text-field lx-label="Nombre de usuario" lx-error="user.username.length === 0 && !signupForm.username.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="text" name="username" ng-model="user.username">
+                </lx-text-field>
+                <lx-text-field lx-label="Contraseña" lx-error="user.password.length === 0 && !signupForm.password.$pristine" lx-allow-clear="true" lx-theme="dark">
+                    <input class="inputSignupInfo" type="password" name="password" ng-model="user.password">
+                </lx-text-field>
+            </form>
+            <div id="signup-buttons-container" flex-container="row" flex-align="center">
+                <button class="signupButton btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2">Registrarse</button>
             </div>
         </div>
     </div>

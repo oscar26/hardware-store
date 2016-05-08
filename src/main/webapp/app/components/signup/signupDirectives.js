@@ -10,7 +10,6 @@ signupDirectives
                 restrict: 'C',
                 link: function (scope, element) {
                     element.bind('click', function (event) {
-                        console.log(scope.user);
                         signupAction.doSignup(scope.user);
                     });
                 }
@@ -18,7 +17,7 @@ signupDirectives
         }
     ])
 
-    .directive('inputLoginInfo', ['signupAction',
+    .directive('inputSignupInfo', ['signupAction',
         function (signupAction) {
             return {
                 restrict: 'C',

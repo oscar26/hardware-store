@@ -12,27 +12,50 @@ signupServices
         }
     ])
     
-    .factory('signupAction', ['$rootScope', '$state', 'signupRequest',
-        function ($rootScope, $state, signupRequest) {
+    .factory('signupAction', ['$rootScope', '$state', 'signupRequest', 'LxNotificationService',
+        function ($rootScope, $state, signupRequest, LxNotificationService) {
             return {
                 doSignup: function (user) {
-                    var info = user;
-                    console.log(user);
-                    signupRequest.signup({}, info,
+                    $rootScope.stateIsLoading = true; // Shows loading splash
+                    // Convert customerId to integer
+                    user.customerId = parseInt(user.customerId, 10);
+                    console.log("Attempting to send user: ", user);
+
+                    signupRequest.signup({}, user,
                         function success(response) {
-                            console.log("Doing signup"); // Delete line
                             console.log(response); // Delete line
-                            if (response.statusCode === 0) {
-                                console.log("success");
-                                $state.go("signin");
-                            } else {
-                                // Show feedback to user
-                                console.log("Access not granted.");
+                            switch (response.statusCode) {
+                                case 0:
+                                    console.log("Signup success.");
+                                    LxNotificationService.success("¡Registro exitoso!");
+                                    $state.go("signin");
+                                    break;
+                                case 1:
+                                    // username already in use. Show notification
+                                    LxNotificationService.error("El nombre de usuario ingresado ya está siendo usado.");
+                                    console.log(response.defaultMessage);
+                                    break;
+                                case 2:
+                                    // email already in use. Show notification
+                                    LxNotificationService.error("El correo electrónico ingresado ya está siendo usado.");
+                                    console.log(response.defaultMessage);
+                                    break;
+                                case 3:
+                                    // customerId already in use. Show notification
+                                    LxNotificationService.error("El documento de identificación ingresado ya está siendo usado.");
+                                    console.log(response.defaultMessage);
+                                    break;
+                                default:
+                                    LxNotificationService.error("Se presentó un error desconocido.");
+                                    console.log("Sign up unsuccessful. Unknown error.");
                             }
+                            $rootScope.stateIsLoading = false; // Hides loading splash
                         },
                         function error(error) {
                             // Show feedback to user
-                            console.log("There was an error when communicating with the server.")
+                            LxNotificationService.error("Hubo un problema de comunicación con el servidor. Prueba más tarde.");
+                            console.log("There was an error when communicating with the server.");
+                            $rootScope.stateIsLoading = false; // Hides loading splash
                         }
                     );
                 }

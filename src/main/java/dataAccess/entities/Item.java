@@ -36,34 +36,9 @@ public class Item implements Serializable {
     @Size(min = 1, max = 100)
     private String entityName;
 
-    @Column(name = "item_height")
-    private double height;
-
-    @Column(name = "item_width")
-    private double width;
-
-    @Column(name = "item_depth")
-    private double depth;
-
-    @Column(name = "item_weight")
-    private double weight;
-
-    @Column(name = "item_colour")
-    @Size(min = 1, max = 50)
-    private String colour;
-
-    @Column(name = "item_quantity")
-    private long quantity;
-
-    @Column(name = "item_price")
-    private double price;
-
-    @Column(name = "item_additional_info")
-    @Size(min = 0, max = 3000)
-    private String additionalInfo;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Item> requiredItems;
+    @Column(name = "item_info")
+    @Size(min = 0, max = 5000)
+    private String info;
 
     public long getItemId() {
         return itemId;
@@ -89,92 +64,20 @@ public class Item implements Serializable {
         this.entityName = entityName;
     }
 
-    public double getHeight() {
-        return height;
+    public String getInfo() {
+        return info;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public double getDepth() {
-        return depth;
-    }
-
-    public void setDepth(double depth) {
-        this.depth = depth;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getAdditionalInfo() {
-        return additionalInfo;
-    }
-
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
-
-    public List<Item> getRequiredItems() {
-        return requiredItems;
-    }
-
-    public void setRequiredItems(List<Item> requiredItems) {
-        this.requiredItems = requiredItems;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public Item() { }
 
-    public Item(String name, String entityName, double height, double width, double depth, double weight, String colour, long quantity, double price, String additionalInfo, List<Item> requiredItems) {
+    public Item(String name, String entityName,String info) {
         this.name = name;
         this.entityName = entityName;
-        this.height = height;
-        this.width = width;
-        this.depth = depth;
-        this.weight = weight;
-        this.colour = colour;
-        this.quantity = quantity;
-        this.price = price;
-        this.additionalInfo = additionalInfo;
-        this.requiredItems = requiredItems;
+        this.info = info;
     }
 
     @Override
@@ -184,43 +87,20 @@ public class Item implements Serializable {
 
         Item item = (Item) o;
 
-        if (itemId != item.itemId) return false;
-        if (Double.compare(item.height, height) != 0) return false;
-        if (Double.compare(item.width, width) != 0) return false;
-        if (Double.compare(item.depth, depth) != 0) return false;
-        if (Double.compare(item.weight, weight) != 0) return false;
-        if (quantity != item.quantity) return false;
-        if (Double.compare(item.price, price) != 0) return false;
-        if (name != null ? !name.equals(item.name) : item.name != null) return false;
-        if (entityName != null ? !entityName.equals(item.entityName) : item.entityName != null) return false;
-        if (colour != null ? !colour.equals(item.colour) : item.colour != null) return false;
-        if (additionalInfo != null ? !additionalInfo.equals(item.additionalInfo) : item.additionalInfo != null)
+        if (getItemId() != item.getItemId()) return false;
+        if (getName() != null ? !getName().equals(item.getName()) : item.getName() != null) return false;
+        if (getEntityName() != null ? !getEntityName().equals(item.getEntityName()) : item.getEntityName() != null)
             return false;
-        return requiredItems != null ? requiredItems.equals(item.requiredItems) : item.requiredItems == null;
+        return getInfo() != null ? getInfo().equals(item.getInfo()) : item.getInfo() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = (int) (itemId ^ (itemId >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (entityName != null ? entityName.hashCode() : 0);
-        temp = Double.doubleToLongBits(height);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(width);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(depth);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(weight);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (colour != null ? colour.hashCode() : 0);
-        result = 31 * result + (int) (quantity ^ (quantity >>> 32));
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (additionalInfo != null ? additionalInfo.hashCode() : 0);
-        result = 31 * result + (requiredItems != null ? requiredItems.hashCode() : 0);
+        int result = (int) (getItemId() ^ (getItemId() >>> 32));
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getEntityName() != null ? getEntityName().hashCode() : 0);
+        result = 31 * result + (getInfo() != null ? getInfo().hashCode() : 0);
         return result;
     }
 
@@ -230,15 +110,7 @@ public class Item implements Serializable {
                 "itemId=" + itemId +
                 ", name='" + name + '\'' +
                 ", entityName='" + entityName + '\'' +
-                ", height=" + height +
-                ", width=" + width +
-                ", depth=" + depth +
-                ", weight=" + weight +
-                ", colour='" + colour + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                ", additionalInfo='" + additionalInfo + '\'' +
-                ", requiredItems=" + requiredItems +
+                ", info='" + info + '\'' +
                 '}';
     }
 }
