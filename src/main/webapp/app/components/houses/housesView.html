@@ -1,0 +1,80 @@
+<div class="houses-view-container p+" flex-container="column">
+    <div class="p+" flex-container="row" flex-column="16" flex-align="center">
+        <div flex-item="12">
+            <div class="p+" flex-container="row" flex-column="12" flex-align="left">
+                <div flex-container="column" flex-align="center">
+                    <span class="fs-display-3 display-block">Houses</span>
+                </div>
+            </div>
+
+            <div class="p+ tabs-container" flex-container="column" flex-column="12" flex-align="center">
+                <div flex-item="12" flex-container="column" flex-align="center">
+                    <!-- Not sure if four different forms (one for each product) or just a generic one leaving
+                         the tabs as mere decoration or options setting. -->
+                    <lx-tabs lx-theme="dark" lx-indicator="blue-grey" lx-active-tab="tabs.activeTab">
+                        <!-- Product 1 tab -->
+                        <lx-tab>
+                            <div flex-container="column" flex-align="space-between center">
+                                <div class="product-image-container" flex-container="row" flex-align="center">
+                                    <img src="http://placehold.it/600x400">
+                                </div>
+                                <div class="product-description">
+                                    (Descripción del producto 1) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                                    dis parturient montes, nascetur ridiculus mus.
+                                </div>
+                            </div>
+                        </lx-tab>
+                    </lx-tabs>
+                </div>
+                <div flex-container="column" flex-align="center">
+                    <div class="divider divider--dark"></div>
+                    <span class="fs-display-3 display-block">Personaliza tu pedido</span>
+                    <div class="pt0 product-form-container">
+                        <form name="productForm">
+                            <div ng-repeat="property in productProperties" ng-if="property.type !== 'none'">
+                                <!-- Textfields -->
+                                <lx-text-field lx-label="{{property.name}}" lx-error="property.value.length === 0 && !productForm[property.name].$pristine" lx-allow-clear="true" ng-if="property.type === 'textfield'">
+                                    <input type="text" name="{{property.name}}" ng-model="property.value">
+                                </lx-text-field>
+                                <!-- Radio buttons -->
+                                <div class="radio-button-container" ng-if="property.type === 'radioButton'">
+                                    <span class="fs-title display-block">{{property.name}}</span>
+                                    <div class = "p+">
+                                        <lx-radio-group>
+                                            <lx-radio-button ng-repeat="option in property.options.values" name="{{property.name}}" value="{{option}}" ng-model="property.value" lx-color="blue-grey">{{option}}</lx-radio-button>
+                                        </lx-radio-group>
+                                    </div>
+                                </div>
+                                <!-- Dropdowns/lists -->
+                                <div class="dropdown-container" ng-if="property.type === 'dropdown'">
+                                    <span class="fs-title display-block">{{property.name}}</span>
+                                    <div class = "p+">
+                                        <lx-dropdown>
+                                            <lx-dropdown-toggle>
+                                                <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">
+                                                    <i class="mdi mdi-chevron-down"></i> {{property.value}}
+                                                </button>
+                                            </lx-dropdown-toggle>
+
+                                            <lx-dropdown-menu>
+                                                <ul>
+                                                    <li ng-repeat="option in property.options.values"><a class="dropdown-link" ng-click="property.value = option">{{option}}</a></li>
+                                                </ul>
+                                            </lx-dropdown-menu>
+                                        </lx-dropdown>
+                                    </div>
+                                </div>
+                                <!-- Checkboxes -->
+                                <lx-checkbox lx-color="blue-grey" ng-model="property.value" ng-if="property.type === 'checkbox'">{{property.name}}</lx-checkbox>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="send-order-button-container" flex-container="row" flex-align="center">
+                        <button class="sendOrderButton btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">Enviar orden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

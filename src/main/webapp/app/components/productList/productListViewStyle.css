@@ -1,24 +1,55 @@
 .product-list-view-container {
-    margin-top: 6rem;
+    min-height: 100vh;
     padding: 0 !important;
+    margin-top: 66px;
+    background: url('https://www.dropbox.com/s/i2co6akkd5i9dhn/tools2.jpg?dl=1') no-repeat fixed center;
 }
 
-.product-list-view-container .fs-title {
-    font-size: 3em;
+.product-list-view-container .button-container {
+    text-align: center;
+    height: 20em;
 }
 
-.product {
-    padding: 2em;
+.product-list-view-container .button-container a {
+    height: 100%;
+    width: 100%;
+    background: rgba(38,50,56,0.7) !important;
 }
 
-.product-list-tabs .tabs__link span {
-    font-size: 1.25em;
+.product-list-view-container .button-container .btn {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    font-size: 2em;
+    padding: 0;
 }
 
-.product-list-tabs .tabs {
-    background-color: rgb(144, 164, 174);
+.product-list-view-container #btn1-container {
+    background: url('https://www.dropbox.com/s/gqao4o68y1rqhr9/btn1_house.jpg?dl=1') no-repeat center;
 }
 
-#extra-info-dialog img {
-    margin: auto;
+.product-list-view-container #btn2-container {
+    background: url('https://www.dropbox.com/s/jldhig9pqds2dlp/btn2_furniture.jpg?dl=1') no-repeat center;
+}
+
+.product-list-view-container #btn3-container {
+    background: url('https://www.dropbox.com/s/aoxs2dcgh93zgzn/btn3_shoes.jpg?dl=1') no-repeat center;
+}
+
+@media (max-width: 1023px) {
+    .product-list-view-container .button-container {
+        background: none !important;
+    }
+
+    .product-list-view-container #btn1 {
+        background: rgba(51,105,30,0.7) !important;
+    }
+
+    .product-list-view-container #btn2 {
+        background: rgba(38,50,56,0.7) !important;
+    }
+
+    .product-list-view-container #btn3 {
+        background: rgba(244,67,54,0.7) !important;
+    }
 }

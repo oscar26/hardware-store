@@ -1,0 +1,102 @@
+.furniture-view-container {
+    min-height: 100vh;
+    padding: 0 !important;
+    margin-top: 66px;
+}
+
+.furniture-view-container .button-container {
+    text-align: center;
+    height: 15em;
+}
+
+.furniture-view-container .button-container a {
+    height: 100%;
+    width: 100%;
+    background: rgba(38,50,56,0.5) !important;
+}
+
+.furniture-view-container .button-container .btn {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    font-size: 2em;
+    padding: 0;
+}
+
+.furniture-view-container #btn1-container {
+    background: url('http://placehold.it/400x400') no-repeat center;
+}
+
+.furniture-view-container #btn2-container {
+    background: url('http://placehold.it/400x400') no-repeat center;
+}
+
+.furniture-view-container #btn3-container {
+    background: url('http://placehold.it/400x400') no-repeat center;
+}
+
+.furniture-view-container #btn4-container {
+    background: url('http://placehold.it/400x400') no-repeat center;
+}
+
+@media (max-width: 1023px) {
+    .furniture-view-container .button-container {
+        background: none !important;
+    }
+
+    .furniture-view-container #btn1 {
+        background: rgba(51,105,30,0.7) !important;
+    }
+
+    .furniture-view-container #btn2 {
+        background: rgba(38,50,56,0.7) !important;
+    }
+
+    .furniture-view-container #btn3 {
+        background: rgba(244,67,54,0.7) !important;
+    }
+
+    .furniture-view-container #btn4 {
+        background: rgba(70,67,200,0.7) !important;
+    }
+}
+
+.furniture-view-container .buttons-container {
+    padding-bottom: 0 !important;
+}
+
+.furniture-view-container .tabs-container {
+    padding-top: 0 !important;
+}
+
+.furniture-view-container .tabs__links, .furniture-view-container .tabs__link, .furniture-view-container .tabs__indicator {
+    height: 5px;
+}
+
+.furniture-view-container .tabs__links {
+    background-color: #263238 !important;
+}
+
+.furniture-view-container .tabs__indicator {
+    top: 0;
+}
+
+.furniture-view-container .tabs-container .product-image-container {
+    padding-top: 5em;
+}
+
+.furniture-view-container .tabs-container .product-description {
+    padding: 5rem 15rem 7.5rem 15rem;
+    text-align: center;
+}
+
+.furniture-view-container .product-form-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.furniture-view-container .product-form-container .radio-button-container,
+.furniture-view-container .product-form-container .dropdown-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
