@@ -1,3 +1,22 @@
-/**
- * Created by jccaleroe on 10/05/2016.
- */
+'user strict';
+
+var editProfileController = angular.module('editProfileController', []);
+
+editProfileController.controller('editProfileCtrl', ['$scope',
+    function ($scope) {
+        $scope.user = {
+            accountId: null,
+            firstName: "",
+            lastName: "",
+            address: "",
+            customerId: "",
+            customerIdType: "CC",
+            phoneNumber: "",
+            email: "",
+            username: "",
+            password: "",
+            placedOrders: null
+
+        };
+    }
+]);

@@ -59,6 +59,7 @@ public class MailService {
             return true;
 
         } catch (MessagingException e) {
+            System.out.println(e);
             return false;
         }
     }
