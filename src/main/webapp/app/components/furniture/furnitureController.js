@@ -43,25 +43,15 @@ furnitureController.controller('furnitureCtrl', ['$scope',
                 name: "dato9", type: "checkbox", value: false
             }
         ];
-        
-        /* Comment 2
-        $scope.product = {};
-        for (var i = 0; i < $scope.productProperties.length; i++)
-            $scope.product[$scope.productProperties[i].name] = "";*/
 
-        /* Comment 1
-        $scope.productProperties = ["dato1", "dato2", "dato3", "dato4", "dato5"];
-        $scope.products = {
-            product1: {},
-            product2: {},
-            product3: {},
-            product4: {}
+        $scope.changeChoice = function (fieldName, newChoice) {
+            for (var i = 0; i < $scope.productProperties.length; i++) {
+                if ($scope.productProperties[i].name === fieldName) {
+                    $scope.productProperties[i].value = newChoice.value;
+                    $scope.productProperties[i].img = newChoice.imgUrl;
+                    break;
+                }
+            }
         };
-
-        for (var product in $scope.products) {
-            if ($scope.products.hasOwnProperty(product))
-                for (var i = 0; i < $scope.productProperties.length; i++)
-                    $scope.products[product][$scope.productProperties[i]] = "";
-        }*/
     }
 ]);

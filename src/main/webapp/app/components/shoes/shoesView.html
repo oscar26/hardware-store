@@ -11,10 +11,10 @@
 
             <div class="p+ buttons-container" flex-container="row" flex-column="12" flex-align="center">
                 <div id="btn1-container" class="button-container" flex-item="6" flex-container="column" flex-align="center">
-                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 0">Producto 1</button></a>
+                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 0">Casual 1</button></a>
                 </div>
                 <div id="btn2-container" class="button-container" flex-item="6" flex-container="column" flex-align="center">
-                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 1">Producto 2</button></a>
+                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 1">Casual 2</button></a>
                 </div>
             </div>
 
@@ -57,42 +57,51 @@
                     <span class="fs-display-3 display-block">Personaliza tu pedido</span>
                     <div class="pt0 product-form-container">
                         <form name="productForm">
-                            <div ng-repeat="property in productProperties" ng-if="property.type !== 'none'">
-                                <!-- Textfields -->
-                                <lx-text-field lx-label="{{property.name}}" lx-error="property.value.length === 0 && !productForm[property.name].$pristine" lx-allow-clear="true" ng-if="property.type === 'textfield'">
-                                    <input type="text" name="{{property.name}}" ng-model="property.value">
-                                </lx-text-field>
-                                <!-- Radio buttons -->
-                                <div class="radio-button-container" ng-if="property.type === 'radioButton'">
-                                    <span class="fs-title display-block">{{property.name}}</span>
-                                    <div class = "p+">
-                                        <lx-radio-group>
-                                            <lx-radio-button ng-repeat="option in property.options.values" name="{{property.name}}" value="{{option}}" ng-model="property.value" lx-color="blue-grey">{{option}}</lx-radio-button>
-                                        </lx-radio-group>
+                            <ul class="list mt++">
+                                <li class="list-row" ng-repeat="property in productProperties" ng-if="property.type !== 'none'">
+                                    <div class="list-row__primary">
+                                        <img ng-src="{{property.img}}" width="40" height="40" class="img-round" ng-if="property.options.hasImage">
                                     </div>
-                                </div>
-                                <!-- Dropdowns/lists -->
-                                <div class="dropdown-container" ng-if="property.type === 'dropdown'">
-                                    <span class="fs-title display-block">{{property.name}}</span>
-                                    <div class = "p+">
-                                        <lx-dropdown>
-                                            <lx-dropdown-toggle>
-                                                <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">
-                                                    <i class="mdi mdi-chevron-down"></i> {{property.value}}
-                                                </button>
-                                            </lx-dropdown-toggle>
+                                    <div class="list-row__content">
+                                        <!-- Textfields -->
+                                        <lx-text-field lx-label="{{property.name}}" lx-error="property.value.length === 0 && !productForm[property.name].$pristine" lx-allow-clear="true" ng-if="property.type === 'textfield'">
+                                            <input type="text" name="{{property.name}}" ng-model="property.value">
+                                        </lx-text-field>
+                                        <!-- Checkboxes -->
+                                        <lx-checkbox lx-color="blue-grey" ng-model="property.value" ng-if="property.type === 'checkbox'">{{property.name}}</lx-checkbox>
+                                        <!-- Radio buttons -->
+                                        <span class="display-block" ng-if="property.type === 'radioButton'">
+                                            <span class="fs-title display-block">{{property.name}}</span>
+                                            <div class="p divider"></div>
+                                            <span class="p display-block">
+                                                <lx-radio-group>
+                                                    <lx-radio-button ng-repeat="choice in property.options.choices" name="{{property.name}}" value="{{choice.value}}" ng-model="property.value" lx-color="blue-grey">{{choice.value}}</lx-radio-button>
+                                                </lx-radio-group>
+                                            </span>
+                                        </span>
+                                        <!-- Dropdowns/lists -->
+                                        <span class="display-block" ng-if="property.type === 'dropdown'">
+                                            <span class="fs-title display-block">{{property.name}}</span>
+                                            <div class="p divider"></div>
+                                            <span class="display-block">
+                                                <lx-dropdown>
+                                                    <lx-dropdown-toggle>
+                                                        <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">
+                                                            <i class="mdi mdi-chevron-down"></i> {{property.value}}
+                                                        </button>
+                                                    </lx-dropdown-toggle>
 
-                                            <lx-dropdown-menu>
-                                                <ul>
-                                                    <li ng-repeat="option in property.options.values"><a class="dropdown-link" ng-click="property.value = option">{{option}}</a></li>
-                                                </ul>
-                                            </lx-dropdown-menu>
-                                        </lx-dropdown>
+                                                    <lx-dropdown-menu>
+                                                        <ul>
+                                                            <li ng-repeat="choice in property.options.choices"><a class="dropdown-link" ng-click="changeChoice(property.name, choice)">{{choice.value}}</a></li>
+                                                        </ul>
+                                                    </lx-dropdown-menu>
+                                                </lx-dropdown>
+                                            </span>
+                                        </span>
                                     </div>
-                                </div>
-                                <!-- Checkboxes -->
-                                <lx-checkbox lx-color="blue-grey" ng-model="property.value" ng-if="property.type === 'checkbox'">{{property.name}}</lx-checkbox>
-                            </div>
+                                </li>
+                            </ul>
                         </form>
                     </div>
                     <div id="send-order-button-container" flex-container="row" flex-align="center">
