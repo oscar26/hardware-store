@@ -62,7 +62,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
     }
 ]);
 
-app.run(function ($rootScope, $localStorage, $state) {
+app.run(function ($rootScope, $localStorage, $state, LxNotificationService) {
 
     $rootScope.$storage = $localStorage.$default({
         loggedUser: false,
@@ -74,9 +74,20 @@ app.run(function ($rootScope, $localStorage, $state) {
             $rootScope.stateIsLoading = true;
             // Logout functionality
             if (toState.name === "signout") {
-                event.preventDefault();
+                if (fromState.name === "main") $rootScope.stateIsLoading = false;
                 $localStorage.$reset();
+                event.preventDefault();
                 $state.go("main");
+            } else if (!$rootScope.$storage.loggedUser && toState.name !== "signin"
+                && toState.name !== "signup" && toState.name !== "main") {
+                LxNotificationService.error("Debes ingresar a la aplicación primero.");
+                event.preventDefault();
+                $state.go("signin");
+            } else if ($rootScope.$storage.loggedUser && toState.name === "signin"
+                && toState.name === "signup") {
+                LxNotificationService.warning("Ya estás registrado en la aplicación.");
+                event.preventDefault();
+                $state.go("productList");
             }
         }
     );
