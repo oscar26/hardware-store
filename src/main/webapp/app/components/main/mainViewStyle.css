@@ -49,25 +49,6 @@
     text-decoration: none;
 }
 
-@media (max-width: 1023px) {
-    #logo-container {
-        padding-top: 2rem;
-    }
-
-    #app-name {
-        padding: 2rem 0.5rem;
-        font-size: 3em;
-    }
-
-    .info-section .info-header {
-        padding-top: 3rem;
-    }
-
-    .info-section .info-description {
-        padding: 1rem 1rem 4rem;
-    }
-}
-
 /* Backgrounds */
 
 #intro-section > div {
@@ -84,4 +65,23 @@
 
 #section-3 .info-image {
     background: url('https://www.dropbox.com/s/yoaoehpp85imz7w/shoes1.jpeg?dl=1') no-repeat left fixed;
+}
+
+@media (max-width: 1023px) {
+    #logo-container {
+        padding-top: 0;
+    }
+
+    #app-name {
+        padding: 2rem 0.5rem;
+        font-size: 3em;
+    }
+
+    .info-section .info-header {
+        padding-top: 3rem;
+    }
+
+    .info-section .info-description {
+        padding: 1rem 1rem 4rem;
+    }
 }

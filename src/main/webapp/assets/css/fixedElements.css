@@ -63,6 +63,12 @@ body {
     margin: auto;
 }
 
+.mini-logo-img-container img {
+    max-width: 30px;
+    height: auto;
+    margin: auto;
+}
+
 @media (max-width: 1023px) {
     #app-name-header {
         display: none;
