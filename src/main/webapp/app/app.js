@@ -5,7 +5,7 @@ var app = angular.module('app',
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
         'signupController', 'signupServices', 'signupDirectives',
-        'editProfileController',
+        //'editProfileController', 'getUserServices',
         'orderServices', 'orderDirectives',
         'housesController', 'furnitureController', 'shoesController'
     ]);
@@ -35,7 +35,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             
             .state('editProfile', {
                 url: "/editProfile",
-                templateUrl: "app/components/editProfile/editProfile.html",
+                templateUrl: "app/components/editProfile/editProfileView.html",
                 controller: 'editProfileCtrl'
             })
 
