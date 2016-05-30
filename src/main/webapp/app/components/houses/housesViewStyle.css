@@ -27,16 +27,6 @@
     background: url('http://placehold.it/400x400') no-repeat center;
 }
 
-@media (max-width: 1023px) {
-    .houses-view-container .button-container {
-        background: none !important;
-    }
-
-    .houses-view-container #btn1 {
-        background: rgba(51,105,30,0.7) !important;
-    }
-}
-
 .houses-view-container .buttons-container {
     padding-bottom: 0 !important;
 }
@@ -75,4 +65,19 @@
 .houses-view-container .product-form-container .dropdown-container {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+@media (max-width: 1023px) {
+    .houses-view-container .button-container {
+        background: none !important;
+    }
+
+    .houses-view-container #btn1 {
+        background: rgba(51,105,30,0.7) !important;
+    }
+
+    .houses-view-container .tabs-container .product-description {
+        padding: 3rem 1rem;
+        text-align: center;
+    }
 }

@@ -2,6 +2,10 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+body {
+    height: 100vh;
+}
+
 .header {
     z-index: 10;
     position: fixed;
@@ -15,12 +19,6 @@ html {
 
 .header .btn {
     font-size: 1.15rem;
-}
-
-@media (max-width: 1023px) {
-    #app-name-header {
-        display: none;
-    }
 }
 
 #app-name-header {
@@ -55,4 +53,28 @@ html {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+#send-order-button-container {
+    text-align: center;
+}
+
+.product-image-container > img {
+    margin: auto;
+}
+
+.mini-logo-img-container img {
+    max-width: 30px;
+    height: auto;
+    margin: auto;
+}
+
+@media (max-width: 1023px) {
+    #app-name-header {
+        display: none;
+    }
+
+    .header .btn {
+        font-size: 1rem;
+    }
 }

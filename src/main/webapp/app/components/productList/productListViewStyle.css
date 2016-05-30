@@ -2,7 +2,7 @@
     min-height: 100vh;
     padding: 0 !important;
     margin-top: 66px;
-    background: url('https://www.dropbox.com/s/i2co6akkd5i9dhn/tools2.jpg?dl=1') no-repeat fixed center;
+    background: url('https://www.dropbox.com/s/i2co6akkd5i9dhn/tools2.jpg?dl=1') no-repeat center;
 }
 
 .product-list-view-container .button-container {
@@ -37,7 +37,8 @@
 }
 
 @media (max-width: 1023px) {
-    .product-list-view-container .button-container {
+    .product-list-view-container .button-container,
+    .product-list-view-container .button-container a {
         background: none !important;
     }
 
@@ -51,5 +52,10 @@
 
     .product-list-view-container #btn3 {
         background: rgba(244,67,54,0.7) !important;
+    }
+
+    .product-list-view-container .button-container {
+        text-align: center;
+        height: 7.5em;
     }
 }

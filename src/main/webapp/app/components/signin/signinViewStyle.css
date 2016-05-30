@@ -3,6 +3,7 @@
     padding-top: 20em;
     background: url('https://www.dropbox.com/s/vmavungn8vofn0j/login1.jpg?dl=1') no-repeat;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 #signin-dialog {
@@ -15,4 +16,12 @@
 
 #signin-buttons-container button {
     font-size: 1.1rem;
+}
+
+@media (max-width: 1023px) {
+    .signin-view-container {
+        padding-top: 10em;
+        padding-bottom: 10em;
+        font-size: 1rem;
+    }
 }
