@@ -3,7 +3,7 @@
         <div flex-item="12">
             <div class="p+" flex-container="row" flex-column="12" flex-align="left">
                 <div flex-container="column" flex-align="center">
-                    <span class="fs-display-3 display-block">Shoes</span>
+                    <span class="fs-display-2 display-block">La Zapattería</span>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                 </div>
                 <div flex-container="column" flex-align="center">
                     <div class="divider divider--dark"></div>
-                    <span class="fs-display-3 display-block">Personaliza tu pedido</span>
+                    <span class="fs-display-2 display-block">Personaliza tu pedido</span>
                     <div class="pt0 product-form-container">
                         <form name="productForm">
                             <ul class="list mt++">
@@ -81,9 +81,9 @@
                                         </span>
                                         <!-- Dropdowns/lists -->
                                         <span class="display-block" ng-if="property.type === 'dropdown'">
-                                            <span class="fs-title display-block">{{property.name}}</span>
-                                            <div class="p divider"></div>
-                                            <span class="display-block">
+                                            <span class="fs-title">{{property.name}}: </span>
+                                            <span></span>
+                                            <span>
                                                 <lx-dropdown>
                                                     <lx-dropdown-toggle>
                                                         <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">

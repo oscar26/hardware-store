@@ -55,6 +55,14 @@ body {
     bottom: 0;
 }
 
+#send-order-button-container {
+    text-align: center;
+}
+
+.product-image-container > img {
+    margin: auto;
+}
+
 @media (max-width: 1023px) {
     #app-name-header {
         display: none;

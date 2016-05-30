@@ -24,41 +24,19 @@
 }
 
 .furniture-view-container #btn1-container {
-    background: url('http://placehold.it/400x400') no-repeat center;
+    background: url('http://placehold.it/500x400') no-repeat center;
 }
 
 .furniture-view-container #btn2-container {
-    background: url('http://placehold.it/400x400') no-repeat center;
+    background: url('http://placehold.it/500x400') no-repeat center;
 }
 
 .furniture-view-container #btn3-container {
-    background: url('http://placehold.it/400x400') no-repeat center;
+    background: url('http://placehold.it/500x400') no-repeat center;
 }
 
 .furniture-view-container #btn4-container {
-    background: url('http://placehold.it/400x400') no-repeat center;
-}
-
-@media (max-width: 1023px) {
-    .furniture-view-container .button-container {
-        background: none !important;
-    }
-
-    .furniture-view-container #btn1 {
-        background: rgba(51,105,30,0.7) !important;
-    }
-
-    .furniture-view-container #btn2 {
-        background: rgba(38,50,56,0.7) !important;
-    }
-
-    .furniture-view-container #btn3 {
-        background: rgba(244,67,54,0.7) !important;
-    }
-
-    .furniture-view-container #btn4 {
-        background: rgba(70,67,200,0.7) !important;
-    }
+    background: url('http://placehold.it/500x400') no-repeat center;
 }
 
 .furniture-view-container .buttons-container {
@@ -99,4 +77,37 @@
 .furniture-view-container .product-form-container .dropdown-container {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+@media (max-width: 1023px) {
+    .furniture-view-container .button-container,
+    .furniture-view-container .button-container a {
+        background: none !important;
+    }
+
+    .furniture-view-container #btn1 {
+        background: rgba(51,105,30,0.7) !important;
+    }
+
+    .furniture-view-container #btn2 {
+        background: rgba(38,50,56,0.7) !important;
+    }
+
+    .furniture-view-container #btn3 {
+        background: rgba(244,67,54,0.7) !important;
+    }
+
+    .furniture-view-container #btn4 {
+        background: rgba(70,67,200,0.7) !important;
+    }
+
+    .furniture-view-container .tabs-container .product-description {
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+
+    .furniture-view-container .button-container {
+        text-align: center;
+        height: 7.5em;
+    }
 }
