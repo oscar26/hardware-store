@@ -10,10 +10,5 @@ out
 output
 
 # External DB props
-<<<<<<< HEAD
-/src/main/resources/externalDB.properties
-output/localDB.properties
-=======
 src/main/resources/externalDB.properties
 src/main/resources/localDB.properties
->>>>>>> master

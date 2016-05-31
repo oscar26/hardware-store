@@ -56,7 +56,7 @@ public class OrderController {
         System.out.println("Furniture request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co", // jmuebles@outlook.com
+                "jmuebles@outlook.com",
                 "[JMUEBLES] Nueva cotización " + new Date(),
                 "¡Enhorabuena! ha llegado una nueva cotización.",
                 "Formulario_JMuebles.xls"
@@ -72,7 +72,7 @@ public class OrderController {
         System.out.println("Shoes request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co", // la.zapatteria.online@gmail.com
+                "la.zapatteria.online@gmail.com",
                 "[ZAPATTERIA] Nueva cotización " + new Date(),
                 "¡Enhorabuena! ha llegado una nueva cotización.",
                 "Formulario_Zapatteria.xls"
