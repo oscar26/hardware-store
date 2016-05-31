@@ -19,7 +19,7 @@ import javax.mail.util.ByteArrayDataSource;
  */
 public class MailService {
 
-    public boolean sendEmail(ByteArrayOutputStream file, String destinatario, String subject, String cuerpoMensaje) {
+    public boolean sendEmail(ByteArrayOutputStream file, String destinatario, String subject, String cuerpoMensaje, String fileName) {
 
         Properties props = new Properties();
 
@@ -44,7 +44,7 @@ public class MailService {
 
             BodyPart adjunto = new MimeBodyPart();
             adjunto.setDataHandler(new DataHandler(new ByteArrayDataSource(file.toByteArray(), "application/vnd.ms-excel")));
-            adjunto.setFileName("archivo1.xls");
+            adjunto.setFileName(fileName);
 
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(text);

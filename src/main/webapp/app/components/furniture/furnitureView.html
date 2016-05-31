@@ -11,13 +11,13 @@
 
             <div class="p+ buttons-container" flex-container="row" flex-column="12" flex-align="center">
                 <div id="btn1-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
-                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(0)">Producto 1</button></a>
+                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(0)">Sala 1</button></a>
                 </div>
                 <div id="btn2-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
-                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(1)">Producto 2</button></a>
+                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(1)">Sala 2</button></a>
                 </div>
                 <div id="btn3-container" class="button-container" flex-item="4" flex-container="column" flex-align="center">
-                    <a><button id="btn3" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(2)">Producto 3</button></a>
+                    <a><button id="btn3" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="changeTab(2)">Sala 3</button></a>
                 </div>
             </div>
 
@@ -26,16 +26,35 @@
                     <!-- Not sure if four different forms (one for each product) or just a generic one leaving
                          the tabs as mere decoration or options setting. -->
                     <lx-tabs lx-theme="dark" lx-indicator="deep-orange" lx-active-tab="currentTab">
+                        <!-- Product 3 tab -->
+                        <lx-tab>
+                            <div flex-container="column" flex-align="space-between center">
+                                <div class="product-image-container" flex-container="row" flex-align="center">
+                                    <img src="https://www.dropbox.com/s/d9dh23vg20zlfbt/sala_3_1.jpg?dl=1">
+                                </div>
+                                <div class="product-description">
+                                    En esta sala se puede obtener la exclusividad de los muebles de diseñador a un precio
+                                    de remate. Con esta sala podrá deleitar a las visitas y llevarlas a la comodidad
+                                    absoluta sin salir de su casa. Podrá escoger desde la comodidad de un sofá familiar,
+                                    hasta la sencillez de un sofá individual, además de una lámpara que iluminará los
+                                    mejores momentos de su vida, y el mueble imprescindible para la organización de su
+                                    sala. Simple, ¿cierto? Escoja ya la sala de sus sueños.
+                                </div>
+                            </div>
+                        </lx-tab>
+
                         <!-- Product 1 tab -->
                         <lx-tab>
                             <div flex-container="column" flex-align="space-between center">
                                 <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
+                                    <img src="https://www.dropbox.com/s/y6jgswgxjwc5nk1/sala_1.jpg?dl=1">
                                 </div>
                                 <div class="product-description">
-                                    (Descripción del producto 1) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
+                                    Este tipo de diseño se emplea en espacios de gran iluminación y amplios. Es adecuado
+                                    para salas en las cuales se desea un estilo moderno y elegante sin perder la sensación
+                                    de la calidez que se espera en un espacio familiar. El éxito de este estilo de sala
+                                    es la simplicidad con la cual usted puede transformar el espacio más importante en
+                                    el lugar de reunión que siempre soñó encontrar al llegar a casa.
                                 </div>
                             </div>
                         </lx-tab>
@@ -44,26 +63,13 @@
                         <lx-tab>
                             <div flex-container="column" flex-align="space-between center">
                                 <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
+                                    <img src="https://www.dropbox.com/s/pq3wm9sesx39gku/sala_2.jpeg?dl=1">
                                 </div>
                                 <div class="product-description">
-                                    (Descripción del producto 2) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
-                                </div>
-                            </div>
-                        </lx-tab>
-
-                        <!-- Product 3 tab -->
-                        <lx-tab>
-                            <div flex-container="column" flex-align="space-between center">
-                                <div class="product-image-container" flex-container="row" flex-align="center">
-                                    <img src="http://placehold.it/600x400">
-                                </div>
-                                <div class="product-description">
-                                    (Descripción del producto 3) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                    dis parturient montes, nascetur ridiculus mus.
+                                    Este tipo de sala es ideal para espacios pequeños y que requieran buena iluminación.
+                                    Consta de una lampara de piso capaz de iluminar grandes distancias, sofás amplios y
+                                    modernos para acoger a toda la familia y amigos, una mesa para ubicar el televisor o
+                                    cualquier tipo de accesorio y una colección de pinturas que le darán vida a su hogar.
                                 </div>
                             </div>
                         </lx-tab>
@@ -75,7 +81,7 @@
                     <div class="pt0 product-form-container">
                         <form name="productForm">
                             <ul class="list mt++">
-                                <li class="list-row" ng-repeat="property in productProperties" ng-if="property.type !== 'none'">
+                                <li class="list-row" ng-repeat="property in productProperties" ng-init="propertyIndex = $index" ng-if="property.type !== 'none'">
                                     <div class="list-row__primary">
                                         <img ng-src="{{property.img}}" width="40" height="40" class="img-round" ng-if="property.options.hasImage">
                                     </div>
@@ -110,7 +116,7 @@
 
                                                     <lx-dropdown-menu>
                                                         <ul>
-                                                            <li ng-repeat="choice in property.options.choices"><a class="dropdown-link" ng-click="changeChoice(property.name, choice)">{{choice.value}}</a></li>
+                                                            <li ng-repeat="choice in property.options.choices"><a class="dropdown-link" ng-click="changeChoice(property.name, choice, propertyIndex)">{{choice.value}}</a></li>
                                                         </ul>
                                                     </lx-dropdown-menu>
                                                 </lx-dropdown>

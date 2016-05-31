@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,8 +41,9 @@ public class OrderController {
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
                 "omdej@unal.edu.co",
-                "[HOUSES] Asunto",
-                "Cuerpo del mensaje"
+                "[HOUSES] Nueva cotización " + new Date(),
+                "¡Enhorabuena! ha llegado una nueva cotización.",
+                "Formulario_Houses.xls"
         );
         if (success)
             return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
@@ -54,9 +56,10 @@ public class OrderController {
         System.out.println("Furniture request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co",
-                "[FURNITURE] Asunto",
-                "Cuerpo del mensaje"
+                "omdej@unal.edu.co", // jmuebles@outlook.com
+                "[JMUEBLES] Nueva cotización " + new Date(),
+                "¡Enhorabuena! ha llegado una nueva cotización.",
+                "Formulario_JMuebles.xls"
         );
         if (success)
             return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);
@@ -69,9 +72,10 @@ public class OrderController {
         System.out.println("Shoes request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co",
-                "[SHOES] Asunto",
-                "Cuerpo del mensaje"
+                "omdej@unal.edu.co", // la.zapatteria.online@gmail.com
+                "[ZAPATTERIA] Nueva cotización " + new Date(),
+                "¡Enhorabuena! ha llegado una nueva cotización.",
+                "Formulario_Zapatteria.xls"
         );
         if (success)
             return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: order correctly processed."), HttpStatus.OK);

@@ -23,22 +23,6 @@
     padding: 0;
 }
 
-.furniture-view-container #btn1-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
-}
-
-.furniture-view-container #btn2-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
-}
-
-.furniture-view-container #btn3-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
-}
-
-.furniture-view-container #btn4-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
-}
-
 .furniture-view-container .buttons-container {
     padding-bottom: 0 !important;
 }
