@@ -41,6 +41,7 @@ public class OrderController {
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
                 "omdej@unal.edu.co",
+                //legoshouseun@unal.edu.co
                 "[HOUSES] Nueva cotización " + new Date(),
                 "¡Enhorabuena! ha llegado una nueva cotización.",
                 "Formulario_Houses.xls"
