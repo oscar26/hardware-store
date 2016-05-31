@@ -7,11 +7,22 @@
                 </div>
             </div>
 
+            <div class="divider divider--dark"></div>
+
+            <div class="p+ buttons-container" flex-container="row" flex-column="12" flex-align="center">
+                <div id="btn1-container" class="button-container" flex-item="6" flex-container="column" flex-align="center">
+                    <a><button id="btn1" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 0">Casa Pequeña</button></a>
+                </div>
+                <div id="btn2-container" class="button-container" flex-item="6" flex-container="column" flex-align="center">
+                    <a><button id="btn2" class="btn btn--m btn--white btn--flat tc-white-1" lx-ripple="white-2" ng-click="productProperties[0].value = 1">Casa Mediana</button></a>
+                </div>
+            </div>
+
             <div class="p+ tabs-container" flex-container="column" flex-column="12" flex-align="center">
                 <div flex-item="12" flex-container="column" flex-align="center">
                     <!-- Not sure if four different forms (one for each product) or just a generic one leaving
                          the tabs as mere decoration or options setting. -->
-                    <lx-tabs lx-theme="dark" lx-indicator="blue-grey" lx-active-tab="tabs.activeTab">
+                    <lx-tabs lx-theme="dark" lx-indicator="deep-orange" lx-active-tab="productProperties[0].value">
                         <!-- Product 1 tab -->
                         <lx-tab>
                             <div flex-container="column" flex-align="space-between center">
@@ -25,6 +36,19 @@
                                 </div>
                             </div>
                         </lx-tab>
+                        <!-- Product 2 tab -->
+                        <lx-tab>
+                            <div flex-container="column" flex-align="space-between center">
+                                <div class="product-image-container" flex-container="row" flex-align="center">
+                                    <img src="http://placehold.it/600x400">
+                                </div>
+                                <div class="product-description">
+                                    (Descripción del producto 2) Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                                    dis parturient montes, nascetur ridiculus mus.
+                                </div>
+                            </div>
+                        </lx-tab>
                     </lx-tabs>
                 </div>
                 <div flex-container="column" flex-align="center">
@@ -32,46 +56,59 @@
                     <span class="fs-display-2 display-block">Personaliza tu pedido</span>
                     <div class="pt0 product-form-container">
                         <form name="productForm">
-                            <div ng-repeat="property in productProperties" ng-if="property.type !== 'none'">
-                                <!-- Textfields -->
-                                <lx-text-field lx-label="{{property.name}}" lx-error="property.value.length === 0 && !productForm[property.name].$pristine" lx-allow-clear="true" ng-if="property.type === 'textfield'">
-                                    <input type="text" name="{{property.name}}" ng-model="property.value">
-                                </lx-text-field>
-                                <!-- Radio buttons -->
-                                <div class="radio-button-container" ng-if="property.type === 'radioButton'">
-                                    <span class="fs-title display-block">{{property.name}}</span>
-                                    <div class = "p+">
-                                        <lx-radio-group>
-                                            <lx-radio-button ng-repeat="option in property.options.values" name="{{property.name}}" value="{{option}}" ng-model="property.value" lx-color="blue-grey">{{option}}</lx-radio-button>
-                                        </lx-radio-group>
-                                    </div>
-                                </div>
-                                <!-- Dropdowns/lists -->
-                                <div class="dropdown-container" ng-if="property.type === 'dropdown'">
-                                    <span class="fs-title display-block">{{property.name}}</span>
-                                    <div class = "p+">
-                                        <lx-dropdown>
-                                            <lx-dropdown-toggle>
-                                                <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">
-                                                    <i class="mdi mdi-chevron-down"></i> {{property.value}}
-                                                </button>
-                                            </lx-dropdown-toggle>
+                            <span class="display-block" style="padding-left: 4em">
+                                <span class="fs-title">{{productProperties[3].name}}: </span>
+                                <span></span>
+                                <span>
+                                    <lx-dropdown>
+                                        <lx-dropdown-toggle>
+                                            <button class="btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">
+                                                <i class="mdi mdi-chevron-down"></i> {{productProperties[3].value}}
+                                            </button>
+                                        </lx-dropdown-toggle>
 
-                                            <lx-dropdown-menu>
-                                                <ul>
-                                                    <li ng-repeat="option in property.options.values"><a class="dropdown-link" ng-click="property.value = option">{{option}}</a></li>
-                                                </ul>
-                                            </lx-dropdown-menu>
-                                        </lx-dropdown>
+                                        <lx-dropdown-menu>
+                                            <ul>
+                                                <li ng-repeat="choice in currentTypes"><a class="dropdown-link" ng-click="productProperties[3].value = choice">{{choice}}</a></li>
+                                            </ul>
+                                        </lx-dropdown-menu>
+                                    </lx-dropdown>
+                                </span>
+                            </span>
+                            <div flex-container="row" flex-column="16" flex-align="center">
+                                <div flex-item="14">
+                                    <lx-text-field lx-label="{{productProperties[1].name}}" lx-error="productProperties[1].value.length === 0 && !productForm[productProperties[1].name].$pristine" lx-allow-clear="true" lx-icon="swap-vertical">
+                                        <input type="text" name="{{productProperties[1].name}}" ng-model="productProperties[1].value">
+                                    </lx-text-field>
+                                </div>
+                                <div class="inc-dec-btn-container" flex-item="2" flex-container="row" flex-column="12" flex-align="center">
+                                    <div flex-item="6" flex-container="column" flex-align="center">
+                                        <lx-button lx-type="icon" lx-color="green" ng-click="changeValue(1, true)"><i class="mdi mdi-plus"></i></lx-button>
+                                    </div>
+                                    <div flex-item="6" flex-container="column" flex-align="center">
+                                        <lx-button lx-type="icon" lx-color="red" ng-click="changeValue(1, false)"><i class="mdi mdi-minus"></i></lx-button>
                                     </div>
                                 </div>
-                                <!-- Checkboxes -->
-                                <lx-checkbox lx-color="blue-grey" ng-model="property.value" ng-if="property.type === 'checkbox'">{{property.name}}</lx-checkbox>
+                            </div>
+                            <div flex-container="row" flex-column="16" flex-align="center">
+                                <div flex-item="14">
+                                    <lx-text-field lx-label="{{productProperties[2].name}}" lx-error="productProperties[2].value.length === 0 && !productForm[productProperties[2].name].$pristine" lx-allow-clear="true" lx-icon="swap-horizontal">
+                                        <input type="text" name="{{productProperties[2].name}}" ng-model="productProperties[2].value">
+                                    </lx-text-field>
+                                </div>
+                                <div class="inc-dec-btn-container" flex-item="2" flex-container="row" flex-column="12" flex-align="center">
+                                    <div flex-item="6" flex-container="column" flex-align="center">
+                                        <lx-button lx-type="icon" lx-color="green" ng-click="changeValue(2, true)"><i class="mdi mdi-plus"></i></lx-button>
+                                    </div>
+                                    <div flex-item="6" flex-container="column" flex-align="center">
+                                        <lx-button lx-type="icon" lx-color="red" ng-click="changeValue(2, false)"><i class="mdi mdi-minus"></i></lx-button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div id="send-order-button-container" flex-container="row" flex-align="center">
-                        <button class="sendOrderButton btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2">Enviar orden</button>
+                        <button class="sendOrderButton btn btn--m btn--blue-grey btn--raised" lx-ripple="white-2" ng-disable="isFormValid">Enviar orden</button>
                     </div>
                 </div>
             </div>
