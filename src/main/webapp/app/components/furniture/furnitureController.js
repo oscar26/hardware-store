@@ -129,7 +129,7 @@ furnitureController.controller('furnitureCtrl', ['$scope',
             // Dropdown 8
             [
                 [], // (Sebas) Espejo
-                [], // (Manuela) Espejo
+                ["Default"], // (Manuela) Espejo
                 [] // (Jenny) Espejo
             ],
         ];
@@ -140,19 +140,22 @@ furnitureController.controller('furnitureCtrl', ['$scope',
             productForms[i].push({name: choiceNames[0], type: choiceTypes[0], value: i, internalName: choiceInternalNames[0]});
             for (var j = 1; j < choiceTypes.length; j += 2) {
                 if (choices[j+1][i].length !== 0) {
-                    productForms[i].push({name: choiceNames[j], type: choiceTypes[j], value: false, internalName: choiceInternalNames[j]});
-                    productForms[i].push({
-                        name: choiceNames[j+1], type: choiceTypes[j+1], value: choices[j+1][i][0].value, img: choices[j+1][i][0].imgUrl,
-                        options: {choices: choices[j+1][i], hasImage: true}, internalName: choiceInternalNames[j+1]
-                    });
+                    if (choices[j+1][i][0] === "Default") {
+                        productForms[i].push({name: choiceNames[j], type: choiceTypes[j], value: false, internalName: choiceInternalNames[j]});
+                        productForms[i].push({type: "none", internalName: choiceInternalNames[j+1], value: "Default"});
+                    } else {
+                        productForms[i].push({name: choiceNames[j], type: choiceTypes[j], value: false, internalName: choiceInternalNames[j]});
+                        productForms[i].push({
+                            name: choiceNames[j+1], type: choiceTypes[j+1], value: choices[j+1][i][0].value, img: choices[j+1][i][0].imgUrl,
+                            options: {choices: choices[j+1][i], hasImage: true}, internalName: choiceInternalNames[j+1]
+                        });
+                    }
                 } else {
                     productForms[i].push({type: "none", internalName: choiceInternalNames[j], value: "0"});
                     productForms[i].push({type: "none", internalName: choiceInternalNames[j+1], value: "Default"});
                 }
             }
         }
-
-        console.log(productForms);
 
         $scope.productProperties = productForms[0];
 
