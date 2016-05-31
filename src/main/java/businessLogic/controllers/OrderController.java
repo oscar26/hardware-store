@@ -54,7 +54,7 @@ public class OrderController {
         System.out.println("Furniture request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co",
+                "jmuebles@outlook.com",
                 "[FURNITURE] Asunto",
                 "Cuerpo del mensaje"
         );
@@ -69,7 +69,7 @@ public class OrderController {
         System.out.println("Shoes request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "omdej@unal.edu.co",
+                "la.zapatteria.online@gmail.com",
                 "[SHOES] Asunto",
                 "Cuerpo del mensaje"
         );

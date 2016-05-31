@@ -15,19 +15,19 @@ furnitureController.controller('furnitureCtrl', ['$scope',
 
             // Choice 2
             [
-                [{value: "Rojo", imgUrl: ""}, {value: "Turquesa", imgUrl: ""},{value: "Negro", imgUrl: ""}],
-                [{value: "Gris", imgUrl: ""}, {value: "Azul oscuro", imgUrl: ""}, {value: "Café oscuro", imgUrl: ""}],
-                [{value: "Negro", imgUrl: ""}, {value: "Azul oscuro ", imgUrl: ""}, {value: "Gris", imgUrl: ""}, {value: "Amarillo quemado", imgUrl: ""}],
+                [{value: "Light Red", imgUrl: ""}, {value: "White", imgUrl: ""},{value: "Glossy - Black", imgUrl: ""}],
+                [{value: "Dark Red", imgUrl: ""}, {value: "Glossy - Black", imgUrl: ""}, {value: "Smooth - Ivory", imgUrl: ""}],
+                [{value: "Light Red", imgUrl: ""}, {value: "White", imgUrl: ""}, {value: "Smooth - Black", imgUrl: ""}]
             ],
 
             // Choice 3
-            ["Mecedora", "Sofa U", "Sofa U"],
+            ["Mecedora", "Sofa Unitario", "Sofa Unitario"],
 
             // Choice 4
             [
-                [{value: "Blanca", imgUrl: ""}, {value: "Negra", imgUrl: ""}],
-                [{value: "Azul ", imgUrl: ""}, {value: "Verde", imgUrl: ""}, {value: "Gris", imgUrl: ""}],
-                [{value: "Negro", imgUrl: ""}, {value: "Azul oscuro ", imgUrl: ""}, {value: "Gris", imgUrl: ""}, {value: "Amarillo quemado", imgUrl: ""}]
+                [{value: "Dirt - Dark brown", imgUrl: ""}, {value: "Cardboard", imgUrl: ""}],
+                [{value: "Green Polished", imgUrl: ""}, {value: "Smooth - Black", imgUrl: ""}, {value: "Smooth - Dark Forest Green", imgUrl: ""}],
+                [{value: "Light Red", imgUrl: ""}, {value: "White", imgUrl: ""}, {value: "Smooth - Black", imgUrl: ""}]
             ],
 
             // Choice 5
@@ -35,9 +35,9 @@ furnitureController.controller('furnitureCtrl', ['$scope',
 
             // Choice 6
             [
-                null,
-                [{value: "Café oscuro", imgUrl: ""}, {value: "Café claro", imgUrl: ""}, {value: "Café", imgUrl: ""}],
-                [{value: "Negro", imgUrl: ""}, {value: "Café", imgUrl: ""}, {value: "Vinotinto ", imgUrl: ""}]
+                [{value: "Dirt - Dark brown", imgUrl: ""}, {value: "Cork - Coarse", imgUrl: ""}],
+                [{value: "Dirt - Dark Brown", imgUrl: ""}, {value: "White Ash - Java", imgUrl: ""}, {value: "Cardboard", imgUrl: ""}],
+                [{value: "Dirt - Dark brown", imgUrl: ""}, {value: "Plywood - Weathered", imgUrl: ""}]
             ],
 
             // Choice 7
@@ -45,13 +45,19 @@ furnitureController.controller('furnitureCtrl', ['$scope',
 
             // Choice 8
             [
-                [{value: "Blanca", imgUrl: ""}, {value: "Negra", imgUrl: ""}],
-                [{value: "Blanca", imgUrl: ""}, {value: "Beige", imgUrl: ""}],
-                null
+                [{value: "Smooth - Light Orange", imgUrl: ""}, {value: "Smooth - Black", imgUrl: ""}],
+                [{value: "Smooth - Ivory", imgUrl: ""}, {value: "Fine Textured - Black", imgUrl: ""}],
+                [{value: "With Stone 1", imgUrl: ""}, {value: "Smooth - Medium Gray", imgUrl: ""}]
             ],
 
             // Choice 9
-            [null, "Cuadros", null],
+            [null, "Cuadro", null],
+
+            [
+                null,
+                [{value: "Flaked Satin - Blue", imgUrl: ""}],
+                null
+            ],
 
             // Choice 10
             [null, "Bife", "Bife"],
@@ -59,8 +65,8 @@ furnitureController.controller('furnitureCtrl', ['$scope',
             // Choice 11
             [
                 null,
-                [{value: "Café oscuro", imgUrl: ""}, {value: "Café claro", imgUrl: ""}, {value: "Café", imgUrl: ""}],
-                [{value: "Negro", imgUrl: ""}, {value: "Café", imgUrl: ""}, {value: "Vinotinto", imgUrl: ""}]
+                [{value: "Dirt - Dark brown", imgUrl: ""}, {value: "Cardboard", imgUrl: ""}, {value: "Cork - Coarse", imgUrl: ""}],
+                [{value: "Dirt - Dark Brown", imgUrl: ""}, {value: "White Ash - Java", imgUrl: ""}, {value: "Cardboard", imgUrl: ""}]
             ],
 
             // Choice 12
@@ -70,7 +76,7 @@ furnitureController.controller('furnitureCtrl', ['$scope',
             [
                 null,
                 null,
-                [{value: "Negro", imgUrl: ""}, {value: "Café", imgUrl: ""}, {value: "Vinotinto ", imgUrl: ""}]
+                [{value: "Dirt - Dark brown", imgUrl: ""}, {value: "Cardboard", imgUrl: ""}]
             ],
 
             // Choice 14
@@ -79,12 +85,12 @@ furnitureController.controller('furnitureCtrl', ['$scope',
 
         var choiceTypes = [
             "none", "checkbox", "dropdown", "checkbox", "dropdown", "checkbox", "dropdown", "checkbox", "dropdown",
-            "checkbox", "checkbox", "dropdown", "checkbox", "dropdown", "checkbox"
+            "checkbox", "dropdown", "checkbox", "dropdown", "checkbox", "dropdown", "checkbox"
         ];
 
         var choiceNames = [
             "productoEscogido", "Sofá principal", "Color del sofá principal", "Mecedora", "Color de la mecedora",
-            "Mesa Centro", "Color de la mesa centro", "Lampara", "Color de la lámpara", "Cuadros", "Bife",
+            "Mesa Centro", "Color de la mesa centro", "Lampara", "Color de la lámpara", "Cuadros", "Color del cuadro", "Bife",
             "Color del Bife", "Mesa Auxiliar", "Color de la mesa auxiliar", "Espejo"
         ];
 
@@ -93,7 +99,7 @@ furnitureController.controller('furnitureCtrl', ['$scope',
         for (var i = 0; i < productForms.length; i++) {
             for (var j = 0; j < choiceTypes.length; j++) {
                 if (choiceTypes[j] === "none")
-                    productForms[i].push({name: choiceNames[j], type: choiceTypes[j], value: i});
+                    productForms[i].push({name: choiceNames[j], type: choiceTypes[j], value: i+1});
                 if (choiceTypes[j] === "checkbox")
                     if (choice[j][i] != null)
                         productForms[i].push({name: choice[j][i], type: choiceTypes[j], value: false});

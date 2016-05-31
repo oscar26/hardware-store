@@ -24,15 +24,15 @@
 }
 
 .furniture-view-container #btn1-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
+    background: url('../../../assets/images/Sala1-1.jpg') no-repeat center;
 }
 
 .furniture-view-container #btn2-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
+    background: url('../../../assets/images/Sala2-1.jpg') no-repeat center;
 }
 
 .furniture-view-container #btn3-container {
-    background: url('http://placehold.it/500x400') no-repeat center;
+    background: url('../../../assets/images/Sala3-1.jpg') no-repeat center;
 }
 
 .furniture-view-container #btn4-container {
