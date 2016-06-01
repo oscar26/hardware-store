@@ -7,7 +7,7 @@ getUserServices
     .factory('getUserRequest', ['$resource',
         function($resource) {
             return $resource('resources/customer/username', {} , {
-                getuser: { method: 'POST' }
+                getuser: { method: 'GET' }
             });
         }
     ])

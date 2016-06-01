@@ -2,7 +2,7 @@
 
 var editProfileController = angular.module('editProfileController', []);
 
-editProfileController.controller('editProfileCtrl', ['$scope',
+editProfileController.controller('editProfileCtrl', ['$scope', 'getUserAction',
     function ($scope) {
         
         $scope.user;
