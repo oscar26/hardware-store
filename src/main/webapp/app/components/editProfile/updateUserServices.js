@@ -1,28 +1,27 @@
 'use strict';
 
-var getUserServices = angular.module('getUserServices', ['ngResource']);
+var updateUserServices = angular.module('updateUserServices', ['ngResource']);
 
-getUserServices
+updateUserServices
 
-    .factory('getUserRequest', ['$resource',
+    .factory('updateUserRequest', ['$resource',
         function($resource) {
-            return $resource('resources/customer/username', {} , {
-                getuser: { method: 'POST' }
+            return $resource('resources/customer/actualizar', {} , {
+                updateuser: { method: 'POST' }
             });
         }
     ])
-    
-    .factory('getUserAction', ['$rootScope', '$state', 'getUserRequest', 'LxNotificationService',
-        function ($rootScope, $state, getUserRequest, LxNotificationService) {
+
+    .factory('updateUserAction', ['$rootScope', '$state', 'updateUserRequest', 'LxNotificationService',
+        function ($rootScope, $state, updateUserRequest, LxNotificationService) {
             return {
-                doGetUser: function (scope) {
+                doUpdateUser: function (user) {
                     $rootScope.stateIsLoading = true; // Shows loading splash
-                    getUserRequest.getuser({}, $rootScope.$storage.username,
+                    updateUserRequest.updateuser({}, user,
                         function success(response) {
-                            console.log(response); // Delete line
+                            //console.log(response); // Delete line
                             $rootScope.stateIsLoading = false; // Hides loading splash
-                            scope.user = response;
-                            return response;
+                            $state.go("main");
                         },
                         function error(error) {
                             // Show feedback to user

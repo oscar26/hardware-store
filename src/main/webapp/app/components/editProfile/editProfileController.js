@@ -3,9 +3,8 @@
 var editProfileController = angular.module('editProfileController', []);
 
 editProfileController.controller('editProfileCtrl', ['$scope', 'getUserAction',
-    function ($scope) {
-        
+    function ($scope, getUserAction) {
         $scope.user;
-        getUserAction.doGetUser(scope);
+        getUserAction.doGetUser($scope);
     }
 ]);

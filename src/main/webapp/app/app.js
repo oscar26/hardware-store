@@ -5,7 +5,7 @@ var app = angular.module('app',
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
         'signupController', 'signupServices', 'signupDirectives',
-        'editProfileController', 'getUserServices',
+        'editProfileController', 'getUserServices', 'updateUserServices', 'updateUserDirectives',
         'orderServices', 'orderDirectives',
         'housesController', 'furnitureController', 'shoesController'
     ]);
