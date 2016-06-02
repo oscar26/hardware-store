@@ -40,7 +40,7 @@ public class OrderController {
         System.out.println("Houses request received");
         boolean success = mailService.sendEmail(
                 spreadsheetService.generateExcelFile(mergeProperties(orderRequest), mergeValues(orderRequest)),
-                "legoshouseun@unal.edu.co", //legoshouseun@unal.edu.co
+                "legoshouseun@outlook.com", //legoshouseun@unal.edu.co
                 "[HOUSES] Nueva cotización " + new Date(),
                 "¡Enhorabuena! ha llegado una nueva cotización.",
                 "Formulario_Houses.xls"
