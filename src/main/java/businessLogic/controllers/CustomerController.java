@@ -67,7 +67,11 @@ public class CustomerController {
     @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
     public Customer retrieveByUsername(@PathVariable String username) {
         System.out.println("Retrieving customer with username {" + username + "}");
-        return customerService.getByUsername(username);
+        Customer customer = customerService.getByUsername(username);
+        if (customer == null)
+            return customerService.getByEmail(username);
+        else
+            return customer;
     }
 
     @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
