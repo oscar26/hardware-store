@@ -26,36 +26,10 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping(value = "/dummy", method = RequestMethod.GET)
-    public Customer dummy() {
-        Customer customer = new Customer("first name2", "last name2", "username2", "pass2", "email2", 22222, CustomerIdType.CC, "address2", "phone2", null);
-        customerService.saveCustomer(customer);
-        return customer;
-    }
-
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Customer> retrieveAllCustomers() {
         System.out.println("Retrieving ALL customers");
         return customerService.getAllCustomers();
-    }
-
-    @RequestMapping(value = "/username", method = RequestMethod.POST)
-    public Customer retrieveByUsername(@RequestBody String username) {
-        System.out.println("Retrieving customer with username {" + username + "}");
-        return customerService.getByUsername(username);
-    }
-
-    @RequestMapping(value = "/actualizar", method = RequestMethod.POST)
-    public ResponseEntity<GenericResponseStatus> updateCustomer(@RequestBody Customer customer) {
-        System.out.println("Updating customer with id " + customer.getCustomerId());
-
-        if (customerService.getById(customer.getCustomerId()) == null) {
-            System.out.println("Customer with id {" + customer.getCustomerId() + "} not found.");
-            return new ResponseEntity<>(new GenericResponseStatus(1, "customer not found"), HttpStatus.OK);
-        }
-
-        customerService.updateCustomer(customer);
-        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user updated"), HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
@@ -75,6 +49,25 @@ public class CustomerController {
 
         customerService.saveCustomer(customer);
         return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user created"), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public ResponseEntity<GenericResponseStatus> updateCustomer(@RequestBody Customer customer) {
+        System.out.println("Updating customer with id " + customer.getCustomerId());
+
+        if (customerService.getByCustomerId(customer.getCustomerId()) == null) {
+            System.out.println("Customer with id {" + customer.getCustomerId() + "} not found.");
+            return new ResponseEntity<>(new GenericResponseStatus(1, "customer not found"), HttpStatus.OK);
+        }
+
+        customerService.updateCustomer(customer);
+        return new ResponseEntity<>(new GenericResponseStatus(0, "SUCCESS: user updated"), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
+    public Customer retrieveByUsername(@PathVariable String username) {
+        System.out.println("Retrieving customer with username {" + username + "}");
+        return customerService.getByUsername(username);
     }
 
     @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)

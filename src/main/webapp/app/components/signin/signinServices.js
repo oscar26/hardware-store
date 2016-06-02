@@ -21,7 +21,6 @@ signinServices
                     loginRequest.login({}, info,
                         function success(response) {
                             console.log("Doing login"); // Delete line
-                            console.log(response); // Delete line
                             if (response.statusCode === 0) {
                                 $rootScope.$storage.loggedUser = true;
                                 $rootScope.$storage.username = scope.user.username;

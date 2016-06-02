@@ -1,10 +1,10 @@
 'use strict';
 
-var updateUserDirectives = angular.module('updateUserDirectives', []);
+var editProfileDirectives = angular.module('editProfileDirectives', []);
 
-updateUserDirectives
+editProfileDirectives
 
-    .directive('updateButton', ['updateUserAction',
+    .directive('editProfileSubmitButton', ['updateUserAction',
         function (updateUserAction) {
             return {
                 restrict: 'C',
@@ -17,7 +17,7 @@ updateUserDirectives
         }
     ])
 
-    .directive('inputSignupInfo', ['updateUserAction',
+    .directive('inputEditProfileInfo', ['updateUserAction',
         function (updateUserAction) {
             return {
                 restrict: 'C',

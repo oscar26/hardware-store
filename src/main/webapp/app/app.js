@@ -5,7 +5,7 @@ var app = angular.module('app',
         'lumx', 'ui.router', 'ngAnimate', 'ngStorage', 'ngResource',
         'signinController', 'signinServices', 'signinDirectives',
         'signupController', 'signupServices', 'signupDirectives',
-        'editProfileController', 'getUserServices', 'updateUserServices', 'updateUserDirectives',
+        'editProfileController', 'editProfileServices', 'editProfileDirectives',
         'orderServices', 'orderDirectives',
         'housesController', 'furnitureController', 'shoesController'
     ]);
@@ -102,6 +102,7 @@ app.run(function ($rootScope, $localStorage, $state, LxNotificationService) {
     $rootScope.$on('$stateChangeSuccess',
         function (event, toState, toParams, fromState, fromParams, options) {
             $rootScope.stateIsLoading = false;
+            $rootScope.lastStateName = fromState.name;
         }
     );
     

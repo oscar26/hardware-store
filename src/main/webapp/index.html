@@ -67,10 +67,9 @@
     <script src="app/components/signup/signupServices.js"></script>
     <script src="app/components/signup/signupDirectives.js"></script>
 
-    <script src="app/components/editProfile/getUserServices.js"></script>
-    <script src="app/components/editProfile/updateUserServices.js"></script>
     <script src="app/components/editProfile/editProfileController.js"></script>
-    <script src="app/components/editProfile/updateUserDirectives.js"></script>
+    <script src="app/components/editProfile/editProfileServices.js"></script>
+    <script src="app/components/editProfile/editProfileDirectives.js"></script>
 
 
     <script src="app/components/orderUtilities/orderServices.js"></script>
@@ -126,6 +125,12 @@
 
                     <lx-dropdown-menu>
                         <ul>
+                            <li>
+                                <a ui-sref="editProfile" class="dropdown-link">
+                                    <i class="mdi mdi-account-box"></i>
+                                    <span>Perfil</span>
+                                </a>
+                            </li>
                             <li>
                                 <a ui-sref="signout" class="dropdown-link">
                                     <i class="mdi mdi-exit-to-app"></i>
